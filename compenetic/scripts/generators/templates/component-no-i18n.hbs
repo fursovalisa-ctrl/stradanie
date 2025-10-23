@@ -1,0 +1,22 @@
+import type { {{name}}Props } from './{{name}}.type';
+import s from './{{name}}.module.{{styleExt}}';
+
+/**
+ * {{name}} component
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <{{name}} />
+ * ```
+ *
+ * @param { {{name}} Props} props - The component props
+ * @returns {JSX.Element} A React component
+ */
+export const {{name}} = ({ className }: {{name}}Props) => {
+  return (
+    <div className={`${s.wrapper} ${className || ''}`}>
+      {{name}} Component
+    </div>
+  );
+};

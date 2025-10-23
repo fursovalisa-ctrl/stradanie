@@ -1,0 +1,18 @@
+<svg
+        opacity="0.9"
+        viewBox="0 0 208 208"
+        fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#shadow)">
+
+        <path d="M168 208V118.053C168 113.824 165.34 110.052 161.356 108.633L134 98.885V208H168Z" fill="darkgrey"/>
+        <path d="M40 72.3726C40 70.7381 40.9944 69.268 42.5116 68.6598L111.951 40.8215C113.226 40.3102 114.675 40.4893 115.787 41.2958L129.87 51.5056C132.464 53.3866 134 56.397 134 59.6017V208H40V72.3726Z"
+              fill="white"/>
+        <path d="M114 47.5001L126.325 56.3036C127.376 57.0544 128 58.2667 128 59.5585V208H114V47.5001Z"
+              fill="darkgrey"/>
+    </g>
+    <defs>
+        <filter id="shadow">
+            <feDropShadow dx="-2" dy="-1" stdDeviation="7" flood-color="rgba(0,0,0,0.2)"/>
+        </filter>
+    </defs>
+</svg>

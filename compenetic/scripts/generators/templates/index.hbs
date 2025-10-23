@@ -1,0 +1,7 @@
+{{#if withIndex}}
+export { {{name}} } from './{{name}}';
+export type { {{name}}Props } from './{{name}}.type';
+{{#if withHook}}
+export { use{{name}} } from './{{name}}.hook';
+{{/if}}
+{{/if}}

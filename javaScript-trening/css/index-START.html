@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Ограниченные переменные CSS и JS</title>
+  <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+<body>
+  <h2>Обновление CSS Переменных с помощью <span class="hl">JavaScript</span></h2>
+
+  <div class="controls">
+    <label for="spacing">Отступы:</label>
+    <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+
+    <label for="blur">Размытие:</label>
+    <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+
+    <label for="base">Базовый цвет</label>
+    <input id="base" type="color" name="base" value="#ffc600">
+  </div>
+
+  <img src="https://image.winudf.com/v2/image/bW9iaS5hbmRyb2FwcC5wcm9zcGVyaXR5YXBwcy5jNTExMV9zY3JlZW5fN18xNTI0MDQxMDUwXzAyMQ/screen-7.jpg?fakeurl=1&type=.jpg">
+
+  <style>
+
+    :root{
+      --base:#a6b9de00;
+      --spacing:10px;
+      --blur:10px;
+    }
+
+    img{
+      padding:var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+      height: 50vh;
+    }
+    /*
+      Дополнительные стили, не связанные с CSS-переменными
+    */
+
+    body {
+      text-align: center;
+      background: #193549;
+      color: white;
+      font-family: 'helvetica neue', sans-serif;
+      font-weight: 100;
+      font-size: 50px;
+    }
+
+    .controls {
+      margin-bottom: 50px;
+    }
+
+    input {
+      width: 100px;
+    }
+  </style>
+
+  <script>
+    const inputs = document.querySelectorAll(".controls input")
+    inputs.forEach(input=> input.addEventListener ('change', handleUpdate))
+    inputs.forEach(input=> input.addEventListener ('mousemove', handleUpdate))
+
+    function handleUpdate(){
+      const suffix = this.dataset.sizing
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix) 
+    }
+  </script>
+
+</body>
+</html>

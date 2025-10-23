@@ -1,0 +1,137 @@
+:root {
+  /* ===== TEXT COLORS ===== */
+  --text-primary: var(--base-gray-0);
+  --text-secondary: var(--base-graphite-55);
+  --text-tertiary: var(--base-graphite-75);
+  --text-accent: var(--brand-primary-500);
+  --text-accent-secondary: var(--brand-primary-550);
+  --text-link: var(--base-blue-50);
+  --text-link-secondary: var(--base-blue-60);
+  --text-negative: var(--base-red-60);
+  --text-negative-secondary: var(--base-red-70);
+  --text-positive: var(--base-green-70);
+  --text-positive-secondary: var(--base-green-80);
+  --text-warning: var(--base-orange-70);
+  --text-warning-secondary: var(--base-orange-80);
+  --text-special: var(--base-violet-50);
+  --text-special-secondary: var(--base-violet-60);
+  --text-contrast: #FFFFFF; /* Pure white not in palette */
+  --text-contrast-secondary: color-mix(in srgb, #FFFFFF 48%, transparent);
+
+    /* ===== TEXT STATE COLORS ===== */
+    --text-state-primary-disabled: var(--base-graphite-60);
+    --text-state-secondary-disabled: var(--base-graphite-80);
+    --text-state-tertiary-disabled: var(--base-graphite-90);
+    --text-state-accent-disabled: color-mix(in srgb, var(--brand-primary-450) 48%, transparent);;
+    --text-state-accent-secondary-disabled: color-mix(in srgb, var(--brand-primary-500) 48%, transparent);
+    --text-state-positive-disabled: color-mix(in srgb, var(--base-green-70) 48%, transparent);
+    --text-state-positive-secondary-disabled: color-mix(in srgb, var(--base-green-80) 48%, transparent);
+    --text-state-negative-disabled: color-mix(in srgb, var(--base-red-60) 48%, transparent);
+    --text-state-negative-secondary-disabled: color-mix(in srgb, var(--base-red-70) 48%, transparent);
+    --text-state-warning-disabled: color-mix(in srgb, var(--base-orange-60) 48%, transparent);
+    --text-state-warning-secondary-disabled: color-mix(in srgb, var(--base-orange-70) 48%, transparent);
+    --text-state-special-disabled: color-mix(in srgb, var(--base-violet-50) 48%, transparent);
+    --text-state-special-secondary-disabled: color-mix(in srgb, var(--base-violet-60) 48%, transparent);
+    --text-state-contrast-disabled: color-mix(in srgb, #FFFFFF 48%, transparent);
+    --text-state-contrast-secondary-disabled: color-mix(in srgb, #FFFFFF 24%, transparent);
+
+  /* ===== BACKGROUND COLORS ===== */
+  --bg-primary: #FFFFFF; /* Pure white not in palette */
+  --bg-secondary: var(--base-graphite-96);
+  --bg-tertiary: var(--base-graphite-90);
+  --bg-accent: var(--brand-primary-500);
+  --bg-accent-secondary: var(--brand-primary-970);
+  --bg-blue: var(--base-blue-50);
+  --bg-blue-secondary: var(--base-blue-96);
+  --bg-negative: var(--base-red-60);
+  --bg-negative-secondary: var(--base-red-96);
+  --bg-positive: var(--base-green-70);
+  --bg-positive-secondary: var(--base-green-96);
+  --bg-warning: var(--base-orange-70);
+  --bg-warning-secondary: var(--base-orange-96);
+  --bg-special: var(--base-violet-70);
+  --bg-special-secondary: var(--base-violet-96);
+  --bg-dreamy: var(--base-sky-75);
+  --bg-dreamy-secondary: var(--base-sky-96);
+  --bg-lovely: var(--base-pink-60);
+  --bg-lovely-secondary: var(--base-pink-96);
+  --bg-vivid: var(--base-yellow-85);
+  --bg-vivid-secondary: var(--base-yellow-96);
+  --bg-overlay: color-mix(in srgb, var(--base-graphite-15) 60%, transparent);
+
+  /* ===== BACKGROUND STATE COLORS ===== */
+  --bg-accent-hover: var(--brand-primary-970);
+  --bg-blue-hover: var(--base-blue-55);
+  --bg-positive-hover: var(--base-green-75);
+  --bg-negative-hover: var(--base-red-65);
+  --bg-warning-hover: var(--base-orange-65);
+  --bg-lovely-hover: var(--base-pink-60);
+  --bg-special-hover: var(--base-violet-75);
+  --bg-vivid-hover: var(--base-yellow-85);
+  --bg-accent-secondary-hover: var(--brand-primary-970);
+  --bg-dreamy-secondary-hover: var(--base-sky-96);
+  --bg-positive-secondary-hover: var(--base-green-96);
+  --bg-negative-secondary-hover: var(--base-red-96);
+  --bg-warning-secondary-hover: var(--base-orange-96);
+  --bg-lovely-secondary-hover: var(--base-pink-96);
+  --bg-special-secondary-hover: var(--base-violet-96);
+  --bg-vivid-secondary-hover: var(--base-yellow-96);
+
+  /* ===== STROKE COLORS ===== */
+  --stroke-neutral: var(--base-graphite-90);
+  --stroke-overlay: color-mix(in srgb, var(--base-graphite-45) 24%, transparent);
+  --stroke-accent: var(--brand-primary-500);
+  --stroke-blue: var(--base-blue-50);
+  --stroke-positive: var(--base-green-70);
+  --stroke-negative: var(--base-red-60);
+  --stroke-warning: var(--base-orange-60);
+  --stroke-lovely: var(--base-pink-60);
+  --stroke-special: var(--base-violet-50);
+  --stroke-vivid: var(--base-yellow-85);
+  --stroke-dreamy: var(--base-sky-75);
+
+  /* ===== STROKE STATE COLORS ===== */
+  --stroke-neutral-hover: var(--base-graphite-90);
+  --stroke-accent-hover: var(--brand-primary-500);
+  --stroke-blue-hover: var(--base-blue-50);
+  --stroke-positive-hover: var(--base-green-70);
+  --stroke-negative-hover: var(--base-red-60);
+  --stroke-warning-hover: var(--base-orange-60);
+  --stroke-lovely-hover: var(--base-pink-60);
+  --stroke-special-hover: var(--base-violet-50);
+  --stroke-vivid-hover: var(--base-yellow-85);
+  --stroke-dreamy-hover: var(--base-sky-75);
+
+  /* ===== STROKE DISABLED COLORS ===== */
+  --stroke-neutral-disabled: color-mix(in srgb, var(--base-graphite-90) 48%, transparent);
+  --stroke-accent-disabled: color-mix(in srgb, var(--brand-primary-500) 48%, transparent);
+  --stroke-blue-disabled: color-mix(in srgb, var(--base-blue-50) 48%, transparent);
+  --stroke-positive-disabled: color-mix(in srgb, var(--base-green-70) 48%, transparent);
+  --stroke-negative-disabled: color-mix(in srgb, var(--base-red-60) 48%, transparent);
+  --stroke-warning-disabled: color-mix(in srgb, var(--base-orange-60) 48%, transparent);
+  --stroke-lovely-disabled: color-mix(in srgb, var(--base-pink-60) 48%, transparent);
+  --stroke-special-disabled: color-mix(in srgb, var(--base-violet-50) 48%, transparent);
+  --stroke-vivid-disabled: color-mix(in srgb, var(--base-yellow-85) 48%, transparent);
+  --stroke-dreamy-disabled: color-mix(in srgb, var(--base-sky-75) 48%, transparent);
+
+  /* ===== ICON COLORS ===== */
+  --icon-primary: var(--base-gray-0);
+  --icon-secondary: var(--base-graphite-55);
+  --icon-tertiary: var(--base-graphite-75);
+  --icon-accent: var(--brand-primary-500);
+  --icon-accent-secondary: var(--brand-primary-970);
+  --icon-blue: var(--base-blue-50);
+  --icon-blue-secondary: var(--base-blue-70);
+  --icon-negative: var(--base-red-60);
+  --icon-negative-secondary: var(--base-red-70);
+  --icon-positive: var(--base-green-70);
+  --icon-positive-secondary: var(--base-green-80);
+  --icon-warning: var(--base-orange-70);
+  --icon-warning-secondary: var(--base-orange-80);
+  --icon-special: var(--base-violet-50);
+  --icon-special-secondary: var(--base-violet-60);
+  --icon-contrast: #FFFFFF; /* Pure white not in palette */
+
+  /* ===== FONTS ===== */
+  --font-family: 'Inter', system-ui, sans-serif;
+}

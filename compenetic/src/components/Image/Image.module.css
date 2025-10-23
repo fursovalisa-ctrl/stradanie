@@ -1,0 +1,37 @@
+/* Design System Tokens */
+:root {
+  /* Colors */
+  --image-background: var(--bg-secondary);
+}
+
+.container {
+  position: relative;
+
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  background: var(--image-background);
+  border-radius: 8px;
+}
+
+.image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  border-radius: 8px;
+
+  transition: opacity 0.2s ease;
+}
+
+.image.loading {
+  opacity: 0.7;
+}
+

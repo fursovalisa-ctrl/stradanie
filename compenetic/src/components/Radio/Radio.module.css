@@ -1,0 +1,218 @@
+/* Переменные для компонента */
+:root {
+    /* Цвета - Primary/Neutral */
+    --radio-background-neutral: #FFFFFF;
+    --radio-border-neutral: var(--base-graphite-90);
+    --radio-icon-neutral: #FFFFFF;
+
+    /* Цвета - Primary/Accent */
+
+    --radio-background-accent: var(--base-blue-50);
+    --radio-background-accent-hovered: var(--base-blue-55);
+
+    /* Цвета - Primary/Negative */
+    --radio-background-negative: var(--base-red-60);
+    --radio-border-negative: var(--base-red-60);
+
+    /* Цвета - Secondary */
+    --radio-background-secondary: var(--base-graphite-85);
+    --radio-border-secondary: var(--base-graphite-95);
+    --radio-icon-secondary: var(--base-graphite-95);
+
+    /* Цвета - Focused */
+
+    --radio-focused-accent: color-mix(in srgb, var(--base-blue-50) 48%, transparent);
+    --radio-focused-negative: color-mix(in srgb, var(--base-red-60) 48%, transparent);
+    --radio-focused-secondary: color-mix(in srgb, var(--radio-background-secondary) 48%, transparent);
+
+    /* Анимации */
+    --radio-animation-ease-in-out-200: all 0.2s ease-in-out;
+    --radio-animation-ease-in-out-tiger-200: all 0.2s ease-in-out;
+    --radio-scale-pressed: 1.05;
+
+    /* Размеры */
+    --radio-size-small: 16.67px;
+    --radio-size-medium: 16.67px;
+    --radio-size-large: 20px;
+
+    /* Отступы и размер border */
+    --radio-padding: 2px;
+    --radio-border-width: 1.5px;
+    --radio-focus-ring-width: 4px;
+    --radio-icon-size: 8px;
+    --radio-gap: 10px;
+    --radio-mode-card-xl-padding: 16px;
+    --radio-mode-card-m-padding: 14px;
+    --radio-mode-card-s-padding: 10px 8px;
+    --radio-mode-card-border-radius: 12px;
+    --radio-mode-card-border: 1px solid var(--radio-border-neutral);
+
+    /* Шрифт */
+    --radio-label-font-size: 14px;
+    --radio-label-line-height: 20px;
+}
+
+/* Состояние радио кнопки */
+.radio {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    margin: var(--radio-padding);
+
+    color: var(--radio-icon-neutral);
+
+    background-color: var(--radio-background-neutral);
+    border-color: var(--radio-border-neutral);
+    border-style: solid;
+    border-width: var(--radio-border-width);
+    border-radius: 50%;
+
+    transition: var(--radio-animation-ease-in-out-tiger-200);
+}
+
+.radio.checked {
+    background-color: var(--radio-background-accent);
+    border: none;
+}
+
+.radio.error {
+    border-color: var(--radio-border-negative);
+}
+
+.radio.error.checked {
+    background-color: var(--radio-background-negative);
+    border: none;
+}
+
+.radio.disabled {
+    cursor: not-allowed;
+    border-color: var(--radio-border-secondary);
+}
+
+.radio.error.disabled {
+    cursor: not-allowed;
+    border-color: var(--radio-border-secondary);
+}
+
+.radio.checked.disabled {
+    background-color: var(--radio-background-secondary);
+    border: none;
+}
+
+.radio:focus-visible:not(.disabled) {
+    outline: none;
+    box-shadow: 0 0 0 var(--radio-focus-ring-width) var(--radio-focused-accent);
+}
+
+.radio.checked:focus-visible:not(.disabled) {
+    outline: none;
+    box-shadow: 0 0 0 var(--radio-focus-ring-width) var(--radio-focused-accent);
+}
+
+.radio.error:focus-visible:not(.disabled) {
+    outline: none;
+    box-shadow: 0 0 0 var(--radio-focus-ring-width) var(--radio-focused-negative);
+}
+
+.radio.disabled:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 var(--radio-focus-ring-width) var(--radio-focused-secondary);
+}
+
+/* Иконка в радио кнопке */
+.icon {
+    width: var(--radio-icon-size);
+    height: var(--radio-icon-size);
+    fill: currentcolor;
+    transition: var(--radio-animation-ease-in-out-200);
+}
+
+/* Размеры */
+.small {
+    width: var(--radio-size-small);
+    min-width: var(--radio-size-small);
+    height: var(--radio-size-small);
+    min-height: var(--radio-size-small);
+}
+
+.medium {
+    width: var(--radio-size-medium);
+    min-width: var(--radio-size-medium);
+    height: var(--radio-size-medium);
+    min-height: var(--radio-size-medium);
+}
+
+.large {
+    width: var(--radio-size-large);
+    min-width: var(--radio-size-large);
+    height: var(--radio-size-large);
+    min-height: var(--radio-size-large);
+}
+
+.label {
+    cursor: pointer;
+    user-select: none;
+
+    display: flex;
+    gap: var(--radio-gap);
+    align-items: center;
+}
+
+.label[aria-disabled="true"] {
+    cursor: not-allowed;
+}
+
+/* Ховер на лейбл */
+.label:hover .radio:not(.checked, .error, .disabled) .icon {
+    fill: var(--radio-icon-secondary);
+}
+
+.label:hover .radio.checked:not(.error, .disabled) {
+    background-color: var(--radio-background-accent-hovered);
+}
+
+.label:active .radio:not(.disabled) {
+    transform: scale(var(--radio-scale-pressed));
+}
+
+.container {
+    display: flex;
+    gap: var(--radio-gap);
+    align-items: baseline;
+
+    width: fit-content;
+
+    font-family: var(--font-family);
+    font-size: var(--radio-label-font-size);
+    line-height: var(--radio-label-line-height);
+    color: var(--text-primary);
+}
+
+.input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.card {
+    padding: var(--radio-mode-card-m-padding);
+    border: var(--radio-mode-card-border);
+    border-radius: var(--radio-mode-card-border-radius);
+}
+
+.smallCard {
+    padding: var(--radio-mode-card-s-padding);
+}
+
+.mediumCard {
+    padding: var(--radio-mode-card-m-padding);
+}
+
+.largeCard {
+    padding: var(--radio-mode-card-xl-padding);
+}

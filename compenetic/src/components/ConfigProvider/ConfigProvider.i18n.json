@@ -1,0 +1,12 @@
+{
+  "en": {
+    "configprovider": {
+      "example": "Example text for ConfigProvider component"
+    }
+  },
+  "ru": {
+    "configprovider": {
+      "example": "Пример текста для компонента ConfigProvider"
+    }
+  }
+}

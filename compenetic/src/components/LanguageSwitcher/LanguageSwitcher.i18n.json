@@ -1,0 +1,12 @@
+{
+  "en": {
+    "languageSwitcher": {
+      "switchTo": "Switch to {{language}}"
+    }
+  },
+  "ru": {
+    "languageSwitcher": {
+      "switchTo": "Переключить на {{language}}"
+    }
+  }
+}

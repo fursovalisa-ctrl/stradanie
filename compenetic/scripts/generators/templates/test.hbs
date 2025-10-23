@@ -1,0 +1,17 @@
+import { render, screen } from '@testing-library/react';
+import { {{name}} } from './{{name}}';
+
+describe('{{name}}', () => {
+  it('should render successfully', () => {
+    render(<{{name}} />);
+    const element = screen.getByTestId('{{name}}-component');
+    expect(element).toBeInTheDocument();
+  });
+
+  it('should have correct styles', () => {
+    render(<{{name}} />);
+    const element = screen.getByTestId('{{name}}-component');
+    expect(element).toHaveClass('wrapper');
+    expect(element).toBeVisible();
+  });
+});

@@ -1,0 +1,92 @@
+.loader {
+  --loader-size: 24px;
+
+  display: block;
+  flex-shrink: 0;
+
+  width: var(--loader-size);
+  min-width: var(--loader-size);
+  max-width: 100%;
+  height: var(--loader-size);
+  min-height: var(--loader-size);
+  max-height: 100%;
+
+  color: inherit;
+
+  animation: spin 1s linear infinite;
+}
+
+.loader.accent {
+  color: var(--text-accent);
+}
+
+.loader.neutral {
+  color: var(--text-primary);
+}
+
+.loader.positive {
+  color: var(--text-positive);
+}
+
+.loader.negative {
+  color: var(--text-negative);
+}
+
+.loader.gray {
+  color: var(--text-secondary);
+}
+
+.loader.special {
+  color: var(--text-tertiary);
+}
+
+.loader.contrast {
+  color: var(--text-contrast);
+}
+
+.container {
+  isolation: isolate;
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  pointer-events: none;
+
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.size-16 {
+  --loader-size: 16px;
+}
+
+.size-24 {
+  --loader-size: 24px;
+}
+
+.size-48 {
+  --loader-size: 48px;
+}
+
+.size-64 {
+  --loader-size: 64px;
+}
+
+.size-96 {
+  --loader-size: 96px;
+}
+
+ 

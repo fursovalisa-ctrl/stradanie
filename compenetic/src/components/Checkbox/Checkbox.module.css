@@ -1,0 +1,262 @@
+/* Токены дизайн-системы */
+:root {
+  /* Цвета — базовые */
+  --checkbox-background-unchecked: var(--bg-primary);
+  --checkbox-background-checked: var(--base-blue-50);
+  --checkbox-background-disabled: var(--bg-tertiary);
+  --checkbox-border-unchecked: var(--base-graphite-90);
+  --checkbox-border-hover: var(--base-graphite-85);
+  --checkbox-border-disabled: var(--base-graphite-95);
+  --checkbox-border-error: var(--text-negative);
+  --checkbox-border-checked: var(--base-blue-50);
+  --checkbox-border-checked-hover: var(--base-blue-55);
+  --checkbox-icon-color: var(--icon-contrast);
+  --checkbox-icon-hover: var(--base-graphite-95);
+  --checkbox-icon-disabled: var(--icon-tertiary);
+  --checkbox-icon-error: var(--text-negative);
+  
+  /* Фокус-состояния */
+  --checkbox-focus-ring: var(--base-blue-85);
+  --checkbox-focus-ring-error: var(--base-red-85);
+  
+  /* Анимация */
+  --semantic-animation-ease-in-out-200: all 0.2s ease-in-out;
+  --semantic-animation-ease-in-out-tiger-200: all 0.2s ease-in-out;
+  --checkbox-scale-pressed: 0.96;
+  
+  /* Скругление углов */
+  --checkbox-border-radius: 4px;
+
+  /* Размеры и типографика */
+  --checkbox-border-width: 1.5px;
+  --checkbox-focus-ring-width: 4px;
+  --checkbox-size-medium: 16.67px;
+  --checkbox-size-large: 20px;
+  --checkbox-container-padding-medium: 1.67px;
+  --checkbox-container-padding-large: 2px;
+  --checkbox-gap: 8px;
+  --checkbox-label-font-size: 14px;
+  --checkbox-label-line-height: 20px;
+}
+
+/* Базовые стили чекбокса */
+.checkbox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--checkbox-border-width) solid var(--checkbox-border-unchecked);
+  border-radius: var(--checkbox-border-radius);
+  background-color: var(--checkbox-background-unchecked);
+  transition: var(--semantic-animation-ease-in-out-200);
+  user-select: none;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* Скрытый input */
+.input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+/* Стили иконки */
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--semantic-animation-ease-in-out-200);
+  color: var(--checkbox-icon-hover);
+}
+
+/* Показ иконки при checked состоянии */
+.icon[data-checked="true"] {
+  opacity: 1;
+  color: var(--checkbox-icon-color);
+}
+
+
+/* Групповой hover (только для кликабельного лейбла) */
+.container[data-clickable-label="true"]:hover .icon[data-checked="false"][data-disabled="false"] {
+  opacity: 1;
+  transition: var(--semantic-animation-ease-in-out-tiger-200);
+}
+
+.container[data-clickable-label="true"]:hover .checkbox[aria-checked="false"][aria-disabled="false"][aria-invalid="false"] {
+  border-color: var(--checkbox-border-hover);
+  transition: var(--semantic-animation-ease-in-out-tiger-200);
+}
+
+.container[data-clickable-label="true"]:hover .checkbox[aria-checked="true"][aria-disabled="false"][aria-invalid="false"] {
+  border-color: var(--checkbox-border-checked-hover);
+  background-color: var(--checkbox-border-checked-hover);
+  transition: var(--semantic-animation-ease-in-out-tiger-200);
+}
+
+/* Прямой hover (только для некликабельного лейбла) */
+.container[data-clickable-label="false"] .checkbox:hover[aria-checked="false"][aria-disabled="false"][aria-invalid="false"] {
+  border-color: var(--checkbox-border-hover);
+  transition: var(--semantic-animation-ease-in-out-tiger-200);
+}
+
+.container[data-clickable-label="false"] .checkbox:hover[aria-checked="true"][aria-disabled="false"][aria-invalid="false"] {
+  border-color: var(--checkbox-border-checked-hover);
+  background-color: var(--checkbox-border-checked-hover);
+  transition: var(--semantic-animation-ease-in-out-tiger-200);
+}
+
+.container[data-clickable-label="false"] .checkbox:hover .icon[data-checked="false"][data-disabled="false"] {
+  opacity: 1;
+  transition: var(--semantic-animation-ease-in-out-tiger-200);
+}
+
+/* Состояния disabled */
+.icon[data-disabled="true"] {
+  opacity: 0;
+  color: var(--checkbox-icon-disabled);
+}
+
+.icon[data-disabled="true"][data-checked="true"] {
+  opacity: 1;
+  color: var(--checkbox-icon-color);
+}
+
+/* Отмеченное состояние */
+.checkbox[aria-checked="true"] {
+  background-color: var(--checkbox-background-checked);
+  border-color: var(--checkbox-border-checked);
+}
+
+/* При ошибке фон остается прозрачным даже если checked */
+.checkbox.error[aria-checked="true"],
+.checkbox[aria-invalid="true"][aria-checked="true"] {
+  background-color: var(--checkbox-background-unchecked);
+}
+
+
+
+/* Фокус‑состояния */
+.checkbox:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 var(--checkbox-focus-ring-width) var(--checkbox-focus-ring);
+}
+.checkboxWrapper .checkbox:focus-visible[aria-invalid="true"] {
+  box-shadow: 0 0 0 var(--checkbox-focus-ring-width) var(--checkbox-focus-ring-error);
+}
+
+.checkboxWrapper label:focus-visible .checkbox {
+  outline: none;
+  box-shadow: 0 0 0 var(--checkbox-focus-ring-width) var(--checkbox-focus-ring);
+}
+.checkboxWrapper label:focus-visible .checkbox[aria-invalid="true"] {
+  outline: none;
+  box-shadow: 0 0 0 var(--checkbox-focus-ring-width) var(--checkbox-focus-ring-error);
+}
+
+/* Активное состояние */
+.checkbox[aria-disabled="false"]:active {
+  transform: scale(var(--checkbox-scale-pressed));
+  transition: var(--semantic-animation-ease-in-out-tiger-200);
+}
+
+/* Состояние disabled */
+.checkbox[aria-disabled="true"] {
+  cursor: not-allowed;
+  background-color: var(--bg-primary);
+  border-color: var(--checkbox-border-disabled);
+}
+
+/* Отключение фокуса для disabled */
+.checkbox[aria-disabled="true"]:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Disabled + checked */
+.checkbox[aria-disabled="true"][aria-checked="true"] {
+  background-color: var(--checkbox-background-disabled);
+  border-color: var(--checkbox-background-disabled);
+}
+
+/* Состояние ошибки */
+.checkbox.error,
+.checkbox[aria-invalid="true"] {
+  border-color: var(--checkbox-border-error);
+}
+
+/* Иконка в состоянии ошибки только если checked/indeterminate + !disabled */
+.checkbox.error .icon[data-checked="true"][data-disabled="false"],
+.checkbox[aria-invalid="true"] .icon[data-checked="true"][data-disabled="false"],
+.checkbox.error .icon[data-indeterminate="true"][data-disabled="false"],
+.checkbox[aria-invalid="true"] .icon[data-indeterminate="true"][data-disabled="false"] {
+  opacity: 1;
+  color: var(--checkbox-icon-error);
+}
+
+/* Размеры */
+.checkbox.medium {
+  width: var(--checkbox-size-medium);
+  height: var(--checkbox-size-medium);
+}
+
+.checkbox.large {
+  width: var(--checkbox-size-large);
+  height: var(--checkbox-size-large);
+}
+
+/* Размеры контейнера */
+.container.medium {
+  padding: var(--checkbox-container-padding-medium);
+}
+
+.container.large {
+  padding: var(--checkbox-container-padding-large);
+}
+
+
+
+/* Стили контейнера */
+.container {
+  display: flex;
+  align-items: center;
+  gap: var(--checkbox-gap);
+  flex-shrink: 0;
+  width: fit-content;
+}
+
+/* Обёртка чекбокса */
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Лейбл внутри обёртки чекбокса */
+.checkboxWrapper > label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Стили лейбла */
+.label {
+  font-family: var(--font-family);
+  font-size: var(--checkbox-label-font-size);
+  line-height: var(--checkbox-label-line-height);
+  color: var(--text-primary);
+}
+
+/* Кликабельный лейбл */
+.label[data-clickable-label="true"] {
+  cursor: pointer;
+}
+
+/* Отключение курсора для disabled */
+.checkbox[aria-disabled="true"] ~ .label {
+  cursor: default;
+}

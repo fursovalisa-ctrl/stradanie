@@ -1,0 +1,462 @@
+/*
+  Основные стили бейджа:
+
+  1. Структура:
+  - .wrapper - обертка для позиционирования (relative)
+  - .badge__container - контейнер для позиционирования бейджа (absolute)
+  - .badge__content - непосредственно бейдж с содержимым
+
+  2. CSS-переменные:
+  --badge-cutout-bg: цвет обводки (по умолчанию берется из --bg-primary)
+  --badge-offset-x/y: смещение от стандартной позиции
+  --badge-height: высота бейджа (определяет все размеры)
+
+  3. Варианты:
+  - .color-{scheme}: цветовые схемы (brand, red и т.д.)
+  - .variant-{type}: варианты отображения (filled, light и т.д.)
+  - .position-{pos}: классы позиционирования
+
+  4. Состояния:
+  - .interactive: бейдж кликабельный (курсор pointer, hover-эффект)
+  - .disabled: неактивное состояние (курсор not-allowed, прозрачность)
+  - .icon: специальные стили для бейджей с иконкой
+
+  Особенности:
+  - Все размеры (padding, font-size, border-radius) вычисляются от --badge-height
+  - Для outline-варианта используется border
+  - Для transparent-варианта фон полностью прозрачный
+  - Позиционирование реализовано через transform с учетом смещений
+*/
+
+
+.wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+
+.badge__container {
+  --badge-cutout-bg: var(--bg-primary);
+  --badge-offset-x: 0;
+  --badge-offset-y: 0;
+  --badge-height: 8px;
+
+  position: absolute;
+
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  background: var(--badge-cutout-bg);
+  border-radius: calc(var(--badge-height) / 2);
+  outline: var(--badge-cutout-bg) solid 3px;
+}
+
+.badge__content {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  min-width: var(--badge-height);
+  height: var(--badge-height);
+  padding: calc(var(--badge-height) * 0.2);
+
+  font-size: calc(var(--badge-height) * 0.6);
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  border-radius: calc(var(--badge-height) / 2);
+
+}
+
+.interactive {
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+
+  &:hover{
+    opacity: 0.48;
+  }
+
+  &:active{
+    scale: 0.9;
+  }
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.icon{
+  aspect-ratio: 1 / 1;
+}
+
+
+.variant-filled{
+  color: var(--text-contrast);
+  fill: var(--icon-contrast);
+  stroke: var(--icon-contrast);
+
+  &.color-brand {
+    background: var(--bg-accent);
+  }
+
+  &.color-red {
+    background: var(--bg-negative);
+  }
+
+  &.color-orange {
+    background: var(--bg-warning);
+  }
+
+  &.color-yellow {
+    background: var(--bg-vivid);
+  }
+
+  &.color-green {
+    background: var(--bg-positive);
+  }
+
+  &.color-blue {
+    background: var(--bg-blue);
+  }
+
+  &.color-lightblue {
+    background: var(--bg-dreamy);
+  }
+
+  &.color-purple {
+    background: var(--bg-special);
+  }
+
+  &.color-gray {
+    background: var(--bg-overlay);
+  }
+
+  &.color-contrast {
+    color: var(--text-primary);
+    background: var(--bg-primary);
+  }
+}
+
+.variant-light {
+  &.color-brand{
+    color: var(--stroke-accent);
+    background: var(--bg-accent-secondary);
+    fill: var(--stroke-accent);
+    stroke: var(--stroke-accent);
+  }
+
+  &.color-red{
+    color: var(--stroke-negative);
+    background: var(--bg-negative-secondary);
+    fill: var(--stroke-negative);
+    stroke: var(--stroke-negative);
+  }
+
+  &.color-orange{
+    color: var(--stroke-warning);
+    background: var(--bg-warning-secondary);
+    fill: var(--stroke-warning);
+    stroke: var(--stroke-warning);
+  }
+
+  &.color-yellow{
+    color: var(--stroke-vivid);
+    background: var(--bg-vivid-secondary);
+    fill: var(--stroke-vivid);
+    stroke: var(--stroke-vivid);
+  }
+
+  &.color-green{
+    color: var(--stroke-positive);
+    background: var(--bg-positive-secondary);
+    fill: var(--stroke-positive);
+    stroke: var(--stroke-positive);
+  }
+
+  &.color-lightblue{
+    color: var(--stroke-dreamy);
+    background: var(--bg-dreamy-secondary);
+    fill: var(--stroke-dreamy);
+    stroke: var(--stroke-dreamy);
+  }
+
+  &.color-blue{
+    color: var(--stroke-blue);
+    background: var(--bg-blue-secondary);
+    fill: var(--stroke-blue);
+    stroke: var(--stroke-blue);
+  }
+
+  &.color-purple{
+    color: var(--stroke-special);
+    background: var(--bg-special-secondary);
+    fill: var(--stroke-special);
+    stroke: var(--stroke-special);
+  }
+
+  &.color-gray{
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    fill: var(--icon-secondary);
+    stroke: var(--icon-secondary);
+  }
+
+  &.color-contrast {
+    color: var(--text-contrast);
+    background: var(--bg-overlay);
+    fill: var(--icon-contrast);
+    stroke: var(--icon-contrast);
+  }
+}
+
+.variant-outline {
+  border: 1px solid;
+
+  &.color-brand {
+    color: var(--icon-accent);
+    border-color: var(--icon-accent);
+    fill: var(--icon-accent);
+    stroke: var(--icon-accent);
+  }
+
+  &.color-red {
+    color: var(--icon-negative);
+    border-color: var(--icon-negative);
+    fill: var(--icon-negative);
+    stroke: var(--icon-negative);
+  }
+
+  &.color-orange {
+    color: var(--icon-warning);
+    border-color: var(--icon-warning);
+    fill: var(--icon-warning);
+    stroke: var(--icon-warning);
+  }
+
+  &.color-yellow {
+    color: var(--stroke-vivid);
+    border-color: var(--stroke-vivid);
+    fill: var(--stroke-vivid);
+    stroke: var(--stroke-vivid);
+  }
+
+  &.color-green {
+    color: var(--icon-positive);
+    border-color: var(--icon-positive);
+    fill: var(--icon-positive);
+    stroke: var(--icon-positive);
+  }
+
+  &.color-blue {
+    color: var(--icon-blue);
+    border-color: var(--icon-blue);
+    fill: var(--icon-blue);
+    stroke: var(--icon-blue);
+  }
+
+  &.color-lightblue {
+    color: var(--stroke-dreamy);
+    border-color: var(--stroke-dreamy);
+    fill: var(--stroke-dreamy);
+    stroke: var(--stroke-dreamy);
+  }
+
+  &.color-purple {
+    color: var(--icon-special);
+    border-color: var(--icon-special);
+    fill: var(--icon-special);
+    stroke: var(--icon-special);
+  }
+
+  &.color-gray {
+    color: var(--text-secondary);
+    border-color: var(--icon-secondary);
+    fill: var(--icon-secondary);
+    stroke: var(--icon-secondary);
+  }
+
+  &.color-contrast {
+    color: var(--icon-contrast);
+    border-color: var(--icon-contrast);
+    fill: var(--icon-contrast);
+    stroke: var(--icon-contrast);
+  }
+}
+
+.variant-transparent {
+  background: transparent;
+  border-color: transparent;
+
+
+  &.color-brand {
+    color: var(--icon-accent);
+    fill: var(--icon-accent);
+    stroke: var(--icon-accent);
+  }
+
+  &.color-red {
+    color: var(--icon-negative);
+    fill: var(--icon-negative);
+    stroke: var(--icon-negative);
+  }
+
+  &.color-orange {
+    color: var(--icon-warning);
+    fill: var(--icon-warning);
+    stroke: var(--icon-warning);
+  }
+
+  &.color-yellow {
+    color: var(--stroke-vivid);
+    fill: var(--stroke-vivid);
+    stroke: var(--stroke-vivid);
+  }
+
+  &.color-green {
+    color: var(--icon-positive);
+    fill: var(--icon-positive);
+    stroke: var(--icon-positive);
+  }
+
+  &.color-blue {
+    color: var(--icon-blue);
+    fill: var(--icon-blue);
+    stroke: var(--icon-blue);
+  }
+
+  &.color-lightblue {
+    color: var(--stroke-dreamy);
+    fill: var(--stroke-dreamy);
+    stroke: var(--stroke-dreamy);
+  }
+
+  &.color-purple {
+    color: var(--icon-special);
+    fill: var(--icon-special);
+    stroke: var(--icon-special);
+  }
+
+  &.color-gray {
+    color: var(--text-secondary);
+    fill: var(--icon-secondary);
+    stroke: var(--icon-secondary);
+  }
+
+  &.color-contrast {
+    color: var(--icon-contrast);
+    fill: var(--icon-contrast);
+    stroke: var(--icon-contrast);
+  }
+}
+
+
+.position-top-left {
+  top: 0;
+  left: 0;
+  transform: translate(calc(var(--badge-offset-x) - var(--badge-height) / 2), calc(-50% + var(--badge-offset-y)));
+}
+
+.position-top-right {
+  top: 0;
+  right: 0;
+  transform: translate(calc(var(--badge-offset-x) + var(--badge-height) / 2), calc(-50% + var(--badge-offset-y)));
+}
+
+.position-bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: translate(calc(var(--badge-offset-x) - var(--badge-height) / 2), calc(50% + var(--badge-offset-y)));
+}
+
+.position-bottom-right {
+  right: 0;
+  bottom: 0;
+  transform: translate(calc(var(--badge-offset-x) + var(--badge-height) / 2), calc(50% + var(--badge-offset-y)));
+}
+
+.position-top-center {
+    top: 0;
+    left: 50%;
+    transform: translate(calc(-50% + var(--badge-offset-x)), calc(-50% + var(--badge-offset-y)));
+}
+
+.position-bottom-center {
+    bottom: 0;
+    left: 50%;
+    transform: translate(calc(-50% + var(--badge-offset-x)), calc(50% + var(--badge-offset-y)));
+}
+
+.position-middle-left {
+    top: 50%;
+    left: 0;
+    transform: translate(calc(var(--badge-offset-x) - var(--badge-height) / 2), calc(-50% + var(--badge-offset-y)));
+}
+
+.position-middle-right {
+    top: 50%;
+    right: 0;
+    transform: translate(calc(var(--badge-offset-x) + var(--badge-height) / 2), calc(-50% + var(--badge-offset-y)));
+}
+
+.position-middle-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(calc(-50% + var(--badge-offset-x)), calc(-50% + var(--badge-offset-y)));
+}
+
+/* Inside placements */
+.position-top-left-inside {
+  top: 0;
+  left: 0;
+  transform: translate(var(--badge-offset-x), var(--badge-offset-y));
+}
+
+.position-top-right-inside {
+  top: 0;
+  right: 0;
+  transform: translate(var(--badge-offset-x), var(--badge-offset-y));
+}
+
+.position-bottom-left-inside {
+  bottom: 0;
+  left: 0;
+  transform: translate(var(--badge-offset-x), var(--badge-offset-y));
+}
+
+.position-bottom-right-inside {
+  right: 0;
+  bottom: 0;
+  transform: translate(var(--badge-offset-x), var(--badge-offset-y));
+}
+
+.position-top-center-inside {
+    top: 0;
+    left: 50%;
+    transform: translate(calc(-50% + var(--badge-offset-x)), var(--badge-offset-y));
+}
+
+.position-bottom-center-inside {
+    bottom: 0;
+    left: 50%;
+    transform: translate(calc(-50% + var(--badge-offset-x)), var(--badge-offset-y));
+}
+
+.position-middle-left-inside {
+    top: 50%;
+    left: 0;
+    transform: translate(var(--badge-offset-x), calc(-50% + var(--badge-offset-y)));
+}
+
+.position-middle-right-inside {
+    top: 50%;
+    right: 0;
+    transform: translate(var(--badge-offset-x), calc(-50% + var(--badge-offset-y)));
+}

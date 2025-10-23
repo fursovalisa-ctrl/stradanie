@@ -1,0 +1,18 @@
+/* Переменные для компонента */
+:root {
+    /* Отступы */
+    --radio-group-gap: 8px;
+}
+
+.group {
+    display: flex;
+    gap: var(--radio-group-gap);
+}
+
+.vertical {
+    flex-direction: column;
+}
+
+.horizontal {
+    flex-direction: row;
+}

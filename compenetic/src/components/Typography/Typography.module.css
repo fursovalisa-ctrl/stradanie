@@ -1,0 +1,86 @@
+.typography {
+  --typography-color: var(--text-primary);
+  --typography-color-disabled: var(--text-state-primary-disabled);
+
+  margin: 0;
+  color: var(--typography-color);
+
+  &.disabled {
+    color: var(--typography-color-disabled);
+  }
+}
+
+.typography.primary {
+  --typography-color-primary: var(--text-primary);
+  --typography-color-primary-disabled: var(--text-state-primary-disabled);
+}
+
+.typography.secondary {
+  --typography-color: var(--text-secondary);
+  --typography-color-disabled: var(--text-state-secondary-disabled);
+}
+
+.typography.tertiary {
+  --typography-color: var(--text-tertiary);
+  --typography-color-disabled: var(--text-state-tertiary-disabled);
+}
+
+.typography.accent {
+  --typography-color: var(--text-accent);
+  --typography-color-disabled: var(--text-state-accent-disabled);
+}
+
+.typography.accent-secondary {
+  --typography-color: var(--text-accent-secondary);
+  --typography-color-disabled: var(--text-state-accent-secondary-disabled);
+}
+
+.typography.positive {
+  --typography-color: var(--text-positive);
+  --typography-color-disabled: var(--text-state-positive-disabled);
+}
+
+.typography.positive-secondary {
+  --typography-color: var(--text-positive-secondary);
+  --typography-color-disabled: var(--text-state-positive-secondary-disabled);
+}
+
+.typography.negative {
+  --typography-color: var(--text-negative);
+  --typography-color-disabled: var(--text-state-negative-disabled);
+}
+
+.typography.negative-secondary {
+  --typography-color: var(--text-negative-secondary);
+  --typography-color-disabled: var(--text-state-negative-secondary-disabled);
+}
+
+.typography.warning {
+  --typography-color: var(--text-warning);
+  --typography-color-disabled: var(--text-state-warning-disabled);
+}
+
+.typography.warning-secondary {
+  --typography-color: var(--text-warning-secondary);
+  --typography-color-disabled: var(--text-state-warning-secondary-disabled);
+}
+
+.typography.special {
+  --typography-color: var(--text-special);
+  --typography-color-disabled: var(--text-state-special-disabled);
+}
+
+.typography.special-secondary {
+  --typography-color: var(--text-special-secondary);
+  --typography-color-disabled: var(--text-state-special-secondary-disabled);
+}
+
+.typography.contrast {
+  --typography-color: var(--text-contrast);
+  --typography-color-disabled: var(--text-state-contrast-disabled);
+}
+
+.typography.contrast-secondary {
+  --typography-color: var(--text-contrast-secondary);
+  --typography-color-disabled: var(--text-state-contrast-secondary-disabled);
+}

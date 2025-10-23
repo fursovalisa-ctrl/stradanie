@@ -1,0 +1,39 @@
+:root {
+  /* Типографика - label regular/3 regular */
+  --helper-font-family: var(--font-family);
+  --helper-font-weight: 400;
+  --helper-font-size: 14px;
+  --helper-line-height: 20px; /* 142.857% */
+  --helper-letter-spacing: 0.07px;
+  
+  /* Цвета */
+  --helper-text-default: var(--text-secondary);
+  --helper-text-error: var(--text-negative);
+  --helper-text-disabled: var(--text-tertiary);
+}
+
+/* Дефолтное состояние */
+.helper {
+  width: 100%;
+  font-family: var(--helper-font-family);
+  font-weight: var(--helper-font-weight);
+  font-size: var(--helper-font-size);
+  line-height: var(--helper-line-height);
+  letter-spacing: var(--helper-letter-spacing);
+  color: var(--helper-text-default);
+}
+
+/* Состояние ошибки */
+.helper--error {
+  color: var(--helper-text-error);
+}
+
+/* Заблокированное состояние */
+.helper--disabled {
+  color: var(--helper-text-disabled);
+}
+
+/* Стили для параграфа внутри компонента */
+.helper p {
+  margin: 0;
+}

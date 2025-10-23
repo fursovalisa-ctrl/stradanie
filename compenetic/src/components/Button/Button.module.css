@@ -1,0 +1,890 @@
+/* Design System Tokens */
+:root {
+  /* Colors - Primary/Neutral */
+  --button-background-neutral: var(--base-gray-0);
+  --button-text-neutral: var(--text-contrast);
+  --button-postfix-text-neutral: var(--base-graphite-75);
+  --button-icon-neutral: var(--icon-contrast);
+  
+  /* Colors - Primary/Accent */
+  --button-background-accent: var(--base-blue-50);
+  --button-text-accent: var(--text-contrast);
+  --button-postfix-text-accent: var(--base-blue-80);
+  --button-icon-accent: var(--icon-contrast);
+  
+  /* Colors - Primary/Positive */
+  --button-background-positive: var(--base-green-70);
+  --button-text-positive: var(--text-contrast);
+  --button-postfix-text-positive: var(--base-green-90);
+  --button-icon-positive: var(--icon-contrast);
+  
+  /* Colors - Primary/Negative */
+  --button-background-negative: var(--base-red-60);
+  --button-text-negative: var(--text-contrast);
+  --button-postfix-text-negative: var(--base-red-90);
+  --button-icon-negative: var(--icon-contrast);
+  
+  /* Colors - Primary/Contrast */
+  --button-background-contrast: var(--bg-primary);
+  --button-text-contrast: var(--base-graphite-15);
+  --button-postfix-text-contrast: var(--base-graphite-75);
+  --button-icon-contrast: var(--icon-contrast);
+  
+  /* Colors - Secondary */
+
+  /* Neutral */
+  --button-background-neutral-secondary: var(--base-graphite-96);
+  --button-text-neutral-secondary: var(--text-primary);
+  --button-postfix-text-neutral-secondary: var(--base-graphite-65);
+  --button-icon-neutral-secondary: var(--icon-contrast);
+
+  /* Accent */
+  --button-background-state-accent-secondary: var(--base-blue-96);
+  --button-text-accent-secondary: var(--base-blue-50);
+  --button-postfix-text-accent-secondary: var(--base-blue-65);
+  --button-icon-accent-secondary: var(--button-icon-neutral);
+
+  /* Positive */
+  --button-background-positive-secondary: var(--base-green-96);
+  --button-text-positive-secondary: var(--base-green-70);
+  --button-postfix-text-positive-secondary: var(--base-green-65);
+  --button-icon-positive-secondary: var(--button-icon-neutral);
+
+  /* Negative */
+  --button-background-negative-secondary: var(--base-red-96);
+  --button-text-negative-secondary: var(--base-red-60);
+  --button-postfix-text-negative-secondary: var(--base-red-70);
+  --button-icon-negative-secondary: var(--button-icon-neutral);
+
+  /* Contrast */
+  --button-background-contrast-secondary: var(--base-graphite-25);
+  --button-text-contrast-secondary: var(--text-contrast);
+  --button-postfix-text-contrast-secondary: var(--base-graphite-65);
+  --button-icon-contrast-secondary: var(--button-icon-neutral);
+  
+  /* Colors - Tertiary */
+
+  /* Neutral */
+  --button-background-neutral-tertiary: transparent;
+  --button-text-neutral-tertiary: var(--base-blue-50);
+  --button-postfix-text-neutral-tertiary: var(--base-graphite-70);
+  --button-icon-neutral-tertiary: var(--button-icon-neutral);
+
+  /* Accent */
+  --button-background-accent-tertiary: var(--button-background-neutral-tertiary);
+  --button-text-accent-tertiary: var(--button-text-neutral-tertiary);
+  --button-postfix-text-accent-tertiary: var(--base-blue-70);
+  --button-icon-accent-tertiary: var(--button-icon-neutral);
+
+  /* Positive */
+  --button-background-positive-tertiary: var(--button-background-neutral-tertiary);
+  --button-text-positive-tertiary: var(--base-green-70);
+  --button-postfix-text-positive-tertiary: var(--base-green-80);
+  --button-icon-positive-tertiary: var(--button-icon-neutral);
+
+  /* Negative */
+  --button-background-negative-tertiary: var(--button-background-neutral-tertiary);
+  --button-text-negative-tertiary: var(--base-red-60);
+  --button-postfix-text-negative-tertiary: var(--base-red-75);
+  --button-icon-negative-tertiary: var(--button-icon-neutral);
+
+  /* Contrast */
+  --button-background-contrast-tertiary: var(--button-background-neutral-tertiary);
+  --button-text-contrast-tertiary: var(--text-contrast);
+  --button-postfix-text-contrast-tertiary: var(--base-graphite-70);
+  --button-icon-contrast-tertiary: var(--button-icon-neutral);
+  
+  /* States - Neutral */
+  --button-background-state-neutral-hovered: var(--base-graphite-25);
+  --button-background-state-neutral-pressed: var(--base-gray-0);
+  --button-background-state-neutral-focused: var(--button-background-state-neutral-pressed);
+  --button-background-state-neutral-disabled: var(--base-graphite-90);
+  --button-text-state-neutral-disabled: var(--base-graphite-75);
+  --button-postfix-text-state-neutral-disabled: var(--button-text-state-neutral-disabled);
+  --button-icon-state-neutral-disabled: var(--button-icon-neutral);
+  --button-background-state-neutral-secondary-hovered: var(--base-graphite-97);
+  --button-background-state-neutral-secondary-pressed: var(--base-graphite-96);
+  --button-background-state-neutral-tertiary-hovered: var(--base-graphite-97);
+  --button-background-state-neutral-tertiary-pressed: transparent;
+  
+  /* States - Accent */
+  --button-background-state-accent-hovered: var(--base-blue-55);
+  --button-background-state-accent-pressed: var(--base-blue-50);
+  --button-background-state-accent-focused: var(--button-background-state-accent-pressed);
+  --button-background-state-accent-disabled: var(--base-graphite-90);
+  --button-text-state-accent-disabled: var(--base-graphite-75);
+  --button-postfix-text-state-accent-disabled: var(--button-text-state-accent-disabled);
+  --button-icon-state-accent-disabled: var(--button-text-neutral);
+  --button-background-state-accent-secondary-hovered: var(--base-blue-97);
+  --button-background-state-accent-secondary-pressed: var(--base-blue-96);
+  --button-background-state-accent-tertiary-hovered: var(--base-blue-97);
+  --button-background-state-accent-tertiary-pressed: transparent;
+  
+  /* States - Positive */
+  --button-background-state-positive-hovered: var(--base-green-75);
+  --button-background-state-positive-pressed: var(--base-green-70);
+  --button-background-state-positive-focused: var(--button-background-state-positive-pressed);
+  --button-background-state-positive-disabled: var(--base-graphite-90);
+  --button-text-state-positive-disabled: var(--base-graphite-60);
+  --button-postfix-text-state-positive-disabled: var(--base-graphite-75);
+  --button-icon-state-positive-disabled: var(--button-icon-neutral);
+  --button-background-state-positive-secondary-hovered: var(--base-green-97);
+  --button-background-state-positive-secondary-pressed: var(--base-green-96);
+  --button-background-state-positive-tertiary-hovered: var(--base-green-97);
+  --button-background-state-positive-tertiary-pressed: var(--base-green-95);
+  
+  /* States - Negative */
+  --button-background-state-negative-hovered: var(--base-red-65);
+  --button-background-state-negative-pressed: var(--base-red-60);
+  --button-background-state-negative-focused: var(--button-background-state-negative-pressed);
+  --button-background-state-negative-disabled: var(--base-graphite-90);
+  --button-text-state-negative-disabled: var(--base-graphite-75);
+  --button-postfix-text-state-negative-disabled: var(--button-text-state-negative-disabled);
+  --button-icon-state-negative-disabled: var(--button-icon-neutral);
+  --button-background-state-negative-secondary-hovered: var(--base-red-97);
+  --button-background-state-negative-secondary-pressed: var(--base-red-96);
+  --button-background-state-negative-tertiary-hovered: var(--base-red-97);
+  --button-background-state-negative-tertiary-pressed: transparent;
+  
+  /* States - Contrast */
+  --button-background-state-contrast-hovered: var(--base-graphite-95);
+  --button-background-state-contrast-pressed: var(--bg-primary);
+  --button-background-state-contrast-focused: var(--button-background-state-contrast-pressed);
+  --button-background-state-contrast-disabled: var(--base-graphite-40);
+  --button-text-state-contrast-disabled: var(--base-graphite-25);
+  --button-postfix-text-state-contrast-disabled: var(--base-graphite-30);
+  --button-icon-state-contrast-disabled: var(--button-icon-neutral);
+  --button-background-state-contrast-secondary-hovered: var(--base-graphite-35);
+  --button-background-state-contrast-secondary-pressed: var(--base-graphite-25);
+  --button-background-state-contrast-tertiary-hovered: var(--base-graphite-35);
+  --button-background-state-contrast-tertiary-pressed: transparent;
+  
+  /* Focus Stroke */
+  --button-stroke-state-neutral-focused-accessible: color-mix(in srgb, var(--base-blue-50) 48%, transparent);
+  --button-stroke-state-accent-focused-accessible: var(--button-stroke-state-neutral-focused-accessible);
+  --button-stroke-state-positive-focused-accessible: color-mix(in srgb, var(--base-green-70) 48%, transparent);
+  --button-stroke-state-negative-focused-accessible: color-mix(in srgb, var(--base-red-60) 48%, transparent);
+  --button-stroke-state-contrast-focused-accessible: color-mix(in srgb, var(--base-blue-80) 48%, transparent);
+  --button-stroke-state-special-focused-accessible: color-mix(in srgb, var(--base-violet-50) 48%, transparent);
+  
+  /* Border radius and width */
+  --semantic-borderRadius-form: 12px;
+  --semantic-borderWidth-tab-focused: 4px;
+  
+  /* Animation */
+  --semantic-animation-ease-in-out-200: background 0.2s ease-in-out;
+  --semantic-animation-ease-in-out-400: background 0.4s ease-in-out;
+  --semantic-scale-pressed: 0.96;
+  
+  /* Typography */
+  --typography-subtitle-1-semibold: 500 16px/22px inter, system-ui, sans-serif;
+  --typography-subtitle-2-semibold: 600 14px/20px inter, system-ui, sans-serif;
+  --typography-label-4-regular: 400 12px/16px inter, system-ui, sans-serif;
+
+  /* Colors - Special */
+  --button-background-special: var(--base-violet-50);
+  --button-text-special: var(--text-contrast);
+  --button-postfix-text-special: var(--base-violet-80);
+  --button-icon-special: var(--icon-contrast);
+  --button-background-special-secondary: transparent;
+  --button-text-special-secondary: var(--base-violet-50);
+  --button-postfix-text-special-secondary: var(--base-violet-50);
+  --button-icon-special-secondary: var(--base-violet-50);
+  --button-background-special-tertiary: transparent;
+  --button-text-special-tertiary: var(--base-violet-50);
+  --button-postfix-text-special-tertiary: var(--base-violet-50);
+  --button-icon-special-tertiary: var(--base-violet-50);
+
+  /* States - Special */
+  --button-background-state-special-hovered: var(--base-violet-40);
+  --button-background-state-special-pressed: var(--base-violet-35);
+  --button-background-state-special-focused: var(--button-background-state-special-pressed);
+  --button-background-state-special-disabled: var(--base-graphite-90);
+  --button-text-state-special-disabled: var(--base-graphite-75);
+  --button-postfix-text-state-special-disabled: var(--button-text-state-special-disabled);
+  --button-icon-state-special-disabled: var(--button-icon-neutral);
+  --button-background-state-special-secondary-hovered: var(--base-violet-96);
+  --button-background-state-special-secondary-pressed: var(--base-violet-95);
+  --button-background-state-special-tertiary-hovered: var(--base-violet-96);
+  --button-background-state-special-tertiary-pressed: transparent;
+}
+
+/* Base button styles */
+.button {
+  cursor: pointer;
+
+  position: relative;
+
+  overflow: visible;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 100%;
+
+  font-family: var(--font-family);
+  font-weight: 400;
+
+  border: none;
+  border-radius: var(--semantic-borderRadius-form);
+  outline: none;
+
+  transition: var(--semantic-animation-ease-in-out-400);
+}
+
+/* Убираем переопределения transition в active состояниях для правильной анимации возвращения */
+.button:active:not(:disabled, .disabled, .loading) {
+  transform: scale(var(--semantic-scale-pressed));
+  transition-duration: var(--semantic-animation-ease-in-out-200);
+}
+
+/* Cursor styles based on state */
+.button:hover:not(:disabled, .loading) {
+  cursor: pointer;
+  transition: var(--semantic-animation-ease-in-out-200);
+}
+
+.button:disabled,
+.button.disabled,
+.button.loading {
+  cursor: not-allowed;
+}
+
+.button:focus-visible:not(:disabled, .disabled, .loading) {
+  box-shadow: 0 0 0 var(--semantic-borderWidth-tab-focused) var(--button-stroke-state-accent-focused-accessible);
+}
+
+/* Focus states for all button styles with higher specificity */
+.button.neutral:focus-visible:not(:disabled, .disabled, .loading) {
+  box-shadow: 0 0 0 var(--semantic-borderWidth-tab-focused) var(--button-stroke-state-neutral-focused-accessible);
+}
+
+.button.accent:focus-visible:not(:disabled, .disabled, .loading) {
+  box-shadow: 0 0 0 var(--semantic-borderWidth-tab-focused) var(--button-stroke-state-accent-focused-accessible);
+}
+
+.button.positive:focus-visible:not(:disabled, .disabled, .loading) {
+  box-shadow: 0 0 0 var(--semantic-borderWidth-tab-focused) var(--button-stroke-state-positive-focused-accessible);
+}
+
+.button.negative:focus-visible:not(:disabled, .disabled, .loading) {
+  box-shadow: 0 0 0 var(--semantic-borderWidth-tab-focused) var(--button-stroke-state-negative-focused-accessible);
+}
+
+.button.contrast:focus-visible:not(:disabled, .disabled, .loading) {
+  box-shadow: 0 0 0 var(--semantic-borderWidth-tab-focused) var(--button-stroke-state-contrast-focused-accessible);
+}
+
+.button.special:focus-visible:not(:disabled, .disabled, .loading) {
+  box-shadow: 0 0 0 var(--semantic-borderWidth-tab-focused) var(--button-stroke-state-special-focused-accessible);
+}
+
+/* More specific selectors for mode + buttonStyle combinations */
+.button.primary.neutral:focus-visible:not(:disabled, .disabled, .loading),
+.button.secondary.neutral:focus-visible:not(:disabled, .disabled, .loading),
+.button.tertiary.neutral:focus-visible:not(:disabled, .disabled, .loading) {
+  box-shadow: 0 0 0 var(--semantic-borderWidth-tab-focused) var(--button-stroke-state-neutral-focused-accessible);
+}
+
+.button.primary.accent:focus-visible:not(:disabled, .disabled, .loading),
+.button.secondary.accent:focus-visible:not(:disabled, .disabled, .loading),
+.button.tertiary.accent:focus-visible:not(:disabled, .disabled, .loading) {
+  box-shadow: 0 0 0 var(--semantic-borderWidth-tab-focused) var(--button-stroke-state-accent-focused-accessible);
+}
+
+.button.primary.positive:focus-visible:not(:disabled, .disabled, .loading),
+.button.secondary.positive:focus-visible:not(:disabled, .disabled, .loading),
+.button.tertiary.positive:focus-visible:not(:disabled, .disabled, .loading) {
+  box-shadow: 0 0 0 var(--semantic-borderWidth-tab-focused) var(--button-stroke-state-positive-focused-accessible);
+}
+
+.button.primary.negative:focus-visible:not(:disabled, .disabled, .loading),
+.button.secondary.negative:focus-visible:not(:disabled, .disabled, .loading),
+.button.tertiary.negative:focus-visible:not(:disabled, .disabled, .loading) {
+  box-shadow: 0 0 0 var(--semantic-borderWidth-tab-focused) var(--button-stroke-state-negative-focused-accessible);
+}
+
+.button.primary.contrast:focus-visible:not(:disabled, .disabled, .loading),
+.button.secondary.contrast:focus-visible:not(:disabled, .disabled, .loading),
+.button.tertiary.contrast:focus-visible:not(:disabled, .disabled, .loading) {
+  box-shadow: 0 0 0 var(--semantic-borderWidth-tab-focused) var(--button-stroke-state-contrast-focused-accessible);
+}
+
+.button.primary.special:focus-visible:not(:disabled, .disabled, .loading),
+.button.secondary.special:focus-visible:not(:disabled, .disabled, .loading),
+.button.tertiary.special:focus-visible:not(:disabled, .disabled, .loading) {
+  box-shadow: 0 0 0 var(--semantic-borderWidth-tab-focused) var(--button-stroke-state-special-focused-accessible);
+}
+
+/* Add styles for the button label to handle text overflow */
+.label {
+  overflow: hidden;
+  display: block;
+
+  max-width: 100%;
+
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Group for icon and postfix */
+.rightGroup {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.rightGroup:empty {
+  display: none;
+}
+
+/* Ensure the button's content is properly contained */
+.button > * {
+  max-width: 100%;
+}
+
+/* Icon only button styles */
+.iconOnly {
+  padding: 8px;
+}
+
+.iconOnly .rightGroup {
+  margin: 0;
+}
+
+.iconOnly.large {
+  padding: 12px;
+}
+
+.iconOnly.medium {
+  padding: 8px;
+}
+
+.iconOnly.small {
+  padding: 6px;
+}
+
+/* Space between */
+.spaceBetween {
+  justify-content: space-between;
+}
+
+.spaceBetween .label {
+  text-align: left;
+}
+
+/* When not spaceBetween, center everything */
+.button:not(.spaceBetween) .rightGroup {
+  margin-left: 0;
+}
+
+/* Stretched button */
+.stretched {
+  width: 100%;
+}
+
+/* Size variants with proper typography */
+.large {
+  padding: 16px 20px;
+  font: var(--typography-subtitle-1-semibold);
+}
+
+.large .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.large.iconOnly {
+  padding: 16px;
+}
+
+.medium {
+  padding: 12px 16px;
+  font: var(--typography-subtitle-1-semibold);
+}
+
+.medium .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.medium.iconOnly {
+  padding: 12px;
+}
+
+.small {
+  padding: 10px 12px;
+  font: var(--typography-subtitle-2-semibold);
+}
+
+.small .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.small.iconOnly {
+  padding: 12px;
+}
+
+.secondary {
+  background-color: transparent;
+}
+
+.tertiary {
+  background-color: transparent;
+}
+
+/* Style types using design tokens */
+.neutral.primary {
+  color: var(--button-text-neutral);
+  background-color: var(--button-background-neutral);
+}
+
+.neutral.primary:hover:not(:disabled) {
+  background-color: var(--button-background-state-neutral-hovered);
+}
+
+.neutral.primary:active:not(:disabled) {
+  background-color: var(--button-background-state-neutral-pressed);
+}
+
+.neutral.secondary {
+  color: var(--button-text-neutral-secondary);
+  background-color: var(--button-background-neutral-secondary);
+}
+
+.neutral.secondary:hover:not(:disabled) {
+  background-color: var(--button-background-state-neutral-secondary-hovered);
+}
+
+.neutral.secondary:active:not(:disabled) {
+  background-color: var(--button-background-state-neutral-secondary-pressed);
+}
+
+.neutral.tertiary {
+  color: var(--button-text-neutral-tertiary);
+  background-color: var(--button-background-neutral-tertiary);
+}
+
+.neutral.tertiary:hover:not(:disabled) {
+  background-color: var(--button-background-state-neutral-tertiary-hovered);
+}
+
+.neutral.tertiary:active:not(:disabled) {
+  background-color: var(--button-background-state-neutral-tertiary-pressed);
+}
+
+.accent.primary {
+  color: var(--button-text-accent);
+  background-color: var(--button-background-accent);
+}
+
+.accent.primary:hover:not(:disabled) {
+  background-color: var(--button-background-state-accent-hovered);
+}
+
+.accent.primary:active:not(:disabled) {
+  background-color: var(--button-background-state-accent-pressed);
+}
+
+.accent.secondary {
+  color: var(--button-text-accent-secondary);
+  background-color: var(--button-background-state-accent-secondary);
+}
+
+.accent.secondary:hover:not(:disabled) {
+  background-color: var(--button-background-state-accent-secondary-hovered);
+}
+
+.accent.secondary:active:not(:disabled) {
+  background-color: var(--button-background-state-accent-secondary-pressed);
+}
+
+.accent.tertiary {
+  color: var(--button-text-accent-tertiary);
+  background-color: var(--button-background-accent-tertiary);
+}
+
+.accent.tertiary:hover:not(:disabled) {
+  background-color: var(--button-background-state-accent-tertiary-hovered);
+}
+
+.accent.tertiary:active:not(:disabled) {
+  background-color: var(--button-background-state-accent-tertiary-pressed);
+}
+
+.positive.primary {
+  color: var(--button-text-positive);
+  background-color: var(--button-background-positive);
+}
+
+.positive.primary:hover:not(:disabled) {
+  background-color: var(--button-background-state-positive-hovered);
+}
+
+.positive.primary:active:not(:disabled) {
+  background-color: var(--button-background-state-positive-pressed);
+}
+
+.positive.secondary {
+  color: var(--button-text-positive-secondary);
+  background-color: var(--button-background-positive-secondary);
+}
+
+.positive.secondary:hover:not(:disabled) {
+  background-color: var(--button-background-state-positive-secondary-hovered);
+}
+
+.positive.secondary:active:not(:disabled) {
+  background-color: var(--button-background-state-positive-secondary-pressed);
+}
+
+.positive.tertiary {
+  color: var(--button-text-positive-tertiary);
+  background-color: var(--button-background-positive-tertiary);
+}
+
+.positive.tertiary:hover:not(:disabled) {
+  background-color: var(--button-background-state-positive-tertiary-hovered);
+}
+
+.positive.tertiary:active:not(:disabled) {
+  background-color: var(--button-background-state-positive-tertiary-pressed);
+}
+
+.negative.primary {
+  color: var(--button-text-negative);
+  background-color: var(--button-background-negative);
+}
+
+.negative.primary:hover:not(:disabled) {
+  background-color: var(--button-background-state-negative-hovered);
+}
+
+.negative.primary:active:not(:disabled) {
+  background-color: var(--button-background-state-negative-pressed);
+}
+
+.negative.secondary {
+  color: var(--button-text-negative-secondary);
+  background-color: var(--button-background-negative-secondary);
+}
+
+.negative.secondary:hover:not(:disabled) {
+  background-color: var(--button-background-state-negative-secondary-hovered);
+}
+
+.negative.secondary:active:not(:disabled) {
+  background-color: var(--button-background-state-negative-secondary-pressed);
+}
+
+.negative.tertiary {
+  color: var(--button-text-negative-tertiary);
+  background-color: var(--button-background-negative-tertiary);
+}
+
+.negative.tertiary:hover:not(:disabled) {
+  background-color: var(--button-background-state-negative-tertiary-hovered);
+}
+
+.negative.tertiary:active:not(:disabled) {
+  background-color: var(--button-background-state-negative-tertiary-pressed);
+}
+
+.special.primary {
+  color: var(--button-text-special);
+  background-color: var(--button-background-special);
+}
+
+.special.primary:hover:not(:disabled) {
+  background-color: var(--button-background-state-special-hovered);
+}
+
+.special.primary:active:not(:disabled) {
+  background-color: var(--button-background-state-special-pressed);
+}
+
+.special.secondary {
+  color: var(--button-text-special-secondary);
+  background-color: var(--button-background-special-secondary);
+}
+
+.special.secondary:hover:not(:disabled) {
+  background-color: var(--button-background-state-special-secondary-hovered);
+}
+
+.special.secondary:active:not(:disabled) {
+  background-color: var(--button-background-state-special-secondary-pressed);
+}
+
+.special.tertiary {
+  color: var(--button-text-special-tertiary);
+  background-color: var(--button-background-special-tertiary);
+}
+
+.special.tertiary:hover:not(:disabled) {
+  background-color: var(--button-background-state-special-tertiary-hovered);
+}
+
+.special.tertiary:active:not(:disabled) {
+  background-color: var(--button-background-state-special-tertiary-pressed);
+}
+
+.contrast.primary {
+  color: var(--button-text-contrast);
+  background-color: var(--button-background-contrast);
+}
+
+.contrast.primary:hover:not(:disabled) {
+  background-color: var(--button-background-state-contrast-hovered);
+}
+
+.contrast.primary:active:not(:disabled) {
+  background-color: var(--button-background-state-contrast-pressed);
+}
+
+.contrast.secondary {
+  color: var(--button-text-contrast-secondary);
+  background-color: var(--button-background-contrast-secondary);
+}
+
+.contrast.secondary:hover:not(:disabled) {
+  background-color: var(--button-background-state-contrast-secondary-hovered);
+}
+
+.contrast.secondary:active:not(:disabled) {
+  background-color: var(--button-background-state-contrast-secondary-pressed);
+}
+
+.contrast.tertiary {
+  color: var(--button-text-contrast-tertiary);
+  background-color: var(--button-background-contrast-tertiary);
+}
+
+.contrast.tertiary:hover:not(:disabled) {
+  background-color: var(--button-background-state-contrast-tertiary-hovered);
+}
+
+.contrast.tertiary:active:not(:disabled) {
+  background-color: var(--button-background-state-contrast-tertiary-pressed);
+}
+
+/* Disabled and loading states */
+.disabled, .loading, .button:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.disabled, .button:disabled {
+  opacity: 0.6;
+}
+
+.neutral.disabled, .neutral:disabled {
+  color: var(--button-text-state-neutral-disabled);
+}
+
+.accent.disabled, .accent:disabled {
+  color: var(--button-text-state-accent-disabled);
+}
+
+.positive.disabled, .positive:disabled {
+  color: var(--button-text-state-positive-disabled);
+}
+
+.negative.disabled, .negative:disabled {
+  color: var(--button-text-state-negative-disabled);
+}
+
+.contrast.disabled, .contrast:disabled {
+  color: var(--button-text-state-contrast-disabled);
+}
+
+/* Badge styles with proper positioning */
+.badge {
+  pointer-events: none;
+
+  position: absolute;
+  z-index: var(--z-button, 10);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  background-color: var(--button-background-negative);
+  border: 1px solid white;
+}
+
+.badgeMedium {
+  /* Центр на правом верхнем углу */
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+
+  min-width: 24px;
+  height: 24px;
+  padding: 1px 7px;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+
+  border-radius: 12px;
+}
+
+.badgeMedium.circular {
+  aspect-ratio: 1;
+  padding: 1px;
+}
+
+.badgeSmall {
+  /* Центр на правом верхнем углу */
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+
+  border-radius: 12px;
+}
+
+.badgeSmall.circular {
+  aspect-ratio: 1;
+  padding: 0;
+}
+
+.badgeExtraSmall {
+  /* Вплотную к правому верхнему углу внутри контура */
+  top: 0;
+  right: 0;
+
+  width: 6px;
+  height: 6px;
+  padding: 0;
+
+  font-size: 0;
+
+  border-radius: 12px;
+}
+
+/* Ensure badge doesn't affect button's layout */
+
+/* Merged with base .button styles above */
+
+/* Специальный стиль для вертикальной группы текста с подписью */
+.withSubcaption {
+  flex-direction: column;
+  align-items: center;
+}
+
+.withSubcaption.large {
+  padding: 8px 20px;
+}
+
+.withSubcaption.medium {
+  padding: 4px 16px;
+}
+
+.subcaption {
+  margin: 0;
+  font: var(--typography-label-4-regular);
+  opacity: 0.8;
+}
+
+/* Loader */
+.loader {
+  display: inline-block;
+
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid rgb(255 255 255 / 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Override opacity for loading state to keep original styles */
+.button.loading {
+  opacity: 1;
+}
+
+/* ---------------- Новые размеры ---------------- */
+.l {
+  padding: 13px 16px;
+  font: var(--typography-subtitle-1-semibold);
+}
+
+.l .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.l.iconOnly {
+  padding: 13px;
+}
+
+.m {
+  padding: 10px 12px;
+  font: var(--typography-subtitle-2-semibold);
+}
+
+.m .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.m.iconOnly {
+  padding: 10px;
+}
+
+.s {
+  padding: 6px 10px;
+  font: var(--typography-subtitle-2-semibold);
+}
+
+.s .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.s.iconOnly {
+  padding: 10px;
+}
+
+.xs {
+  padding: 4px 8px;
+  font: var(--typography-subtitle-2-semibold);
+}
+
+.xs .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.xs.iconOnly {
+  padding: 8px;
+}
+
+/* withSubcaption overrides for новые размеры */
+.withSubcaption.l {
+  padding: 7px 16px;
+}
+
+.withSubcaption.m {
+  padding: 5px 12px;
+}

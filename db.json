@@ -1,0 +1,59 @@
+{
+  "chastushki": [
+    {
+      "id": "1",
+      "text": "Частушка текст 1",
+      "author": "Аноним",
+      "category": "Народная"
+    },
+    {
+      "id": "2",
+      "text": "Частушка текст 2",
+      "author": "Аноним", 
+      "category": "Народная"
+    },
+    {
+      "id": "3", 
+      "text": "Частушка текст 3",
+      "author": "Аноним",
+      "category": "Современная"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Иван",
+      "age": 25,
+      "email": "ivan@example.com",
+      "city": "Москва"
+    },
+    {
+      "id": 2, 
+      "name": "Мария",
+      "age": 30,
+      "email": "maria@example.com",
+      "city": "Санкт-Петербург"
+    },
+    {
+      "id": 3,
+      "name": "Петр",
+      "age": 28,
+      "email": "petr@example.com", 
+      "city": "Новосибирск"
+    },
+    {
+      "id": 4,
+      "name": "Анна",
+      "age": 22,
+      "email": "anna@example.com",
+      "city": "Екатеринбург"
+    },
+    {
+      "id": 5,
+      "name": "Сергей", 
+      "age": 35,
+      "email": "sergey@example.com",
+      "city": "Казань"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+
+:root{
+   /* List sizes */
+  --list-gap-sm: 8px;
+  --list-font-size-sm: 12px;
+  --list-line-height-sm: 22px;
+  --list-letter-spacing-sm: 0.18px;
+  --list-padding-left-sm: 7px;
+
+  --list-gap-md: 10px;
+  --list-font-size-md: 14px;
+  --list-line-height-md: 24px;
+  --list-letter-spacing-md: 0.14px;
+  --list-padding-left-md: 8px;
+
+  --list-gap-lg: 12px;
+  --list-font-size-lg: 16px;
+  --list-line-height-lg: 26px;
+  --list-letter-spacing-lg: 0.08px;
+  --list-padding-left-lg: 9px;
+
+  --list-gap-xl: 14px;
+  --list-font-size-xl: 18px;
+  --list-line-height-xl: 28px;
+  --list-padding-left-xl: 10px;
+}
+
+.root {
+  margin: 0;
+  padding: 0;
+  list-style-position: outside;
+  color: inherit;
+
+  font-family: var(--font-family);
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.unordered {
+  list-style-type: disc;
+}
+
+.ordered {
+  list-style-type: decimal;
+}
+
+/* paragraph-4-regular */
+.sm {
+  gap: var(--list-gap-sm);
+  font-size: var(--list-font-size-sm);
+  line-height: var(--list-line-height-sm);
+  letter-spacing: var(--list-letter-spacing-sm);
+  padding-left: var(--list-padding-left-sm);
+}
+
+/* paragraph-3-regular */
+.md {
+  gap: var(--list-gap-md);
+  font-size: var(--list-font-size-md);
+  line-height: var(--list-line-height-md);
+  letter-spacing: var(--list-letter-spacing-md);
+  padding-left: var(--list-padding-left-md);
+}
+
+/* paragraph-2-regular */
+.lg {
+  gap: var(--list-gap-lg);
+  font-size: var(--list-font-size-lg);
+  line-height: var(--list-line-height-lg);
+  letter-spacing: var(--list-letter-spacing-lg);
+  padding-left: var(--list-padding-left-lg);
+}
+
+/* paragraph-1-regular */
+.xl {
+  gap: var(--list-gap-xl);
+  font-size: var(--list-font-size-xl);
+  line-height: var(--list-line-height-xl);
+  padding-left: var(--list-padding-left-xl);
+}
+
+

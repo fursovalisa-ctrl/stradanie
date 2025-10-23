@@ -1,0 +1,25 @@
+import { useCustomTranslations } from '../../hooks/useCustomTranslations';
+import type { {{name}}Props } from './{{name}}.type';
+import s from './{{name}}.module.{{styleExt}}';
+
+/**
+ * {{name}} component
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <{{name}} />
+ * ```
+ *
+ * @param { {{name}}Props } props - The component props
+ * @returns {JSX.Element} A React component
+ */
+export const {{name}} = ({ className, i18n }: {{name}}Props) => {
+  const t = useCustomTranslations('{{lowercase name}}', i18n);
+
+  return (
+    <div className={`${s.wrapper} ${className || ''}`}>
+      {t('{{lowercase name}}.example')}
+    </div>
+  );
+};

@@ -1,0 +1,107 @@
+.tag {
+    --tag-bg-color: var(--bg-secondary);
+    --tag-label-color: var(--base-graphite-45);
+    --tag-icon-wrapper-color: var(--base-graphite-45);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: fit-content;
+    
+    text-overflow: ellipsis;
+
+    background-color: var(--tag-bg-color);
+
+    .label {
+        color: var(--tag-label-color);
+    }
+
+    .iconWrapper {
+        width: 1rem;
+        height: 1rem;
+        color: var(--tag-icon-wrapper-color);
+    }
+}
+
+.tag.medium {
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.tag.large {
+    gap: 0.125rem;
+    padding: 0.375rem 0.625rem;
+    border-radius: 1.125rem;
+
+    .label {
+        padding: 0.0625rem 0.125rem;
+    }
+}
+
+.disabled {
+    opacity: .48;
+}
+
+.tag.neutral {
+    --tag-bg-color: var(--bg-secondary);
+    --tag-label-color: var(--base-graphite-45);
+    --tag-icon-wrapper-color: var(--base-graphite-45);
+}
+
+.tag.positive {
+    --tag-bg-color: var(--bg-positive-secondary);
+    --tag-label-color: var(--base-green-55);
+    --tag-icon-wrapper-color: var(--base-green-55);
+}
+
+.tag.negative {
+    --tag-bg-color: var(--bg-negative-secondary);
+    --tag-label-color: var(--base-red-55);
+    --tag-icon-wrapper-color: var(--base-red-55);
+}
+
+.tag.warning {
+    --tag-bg-color: var(--bg-warning-secondary);
+    --tag-label-color: var(--base-orange-50);
+    --tag-icon-wrapper-color: var(--base-orange-50);
+}
+
+.tag.vivid {
+    --tag-bg-color: var(--bg-vivid-secondary);
+    --tag-label-color: var(--base-yellow-50);
+    --tag-icon-wrapper-color: var(--base-yellow-50);
+}
+
+.tag.special {
+    --tag-bg-color: var(--bg-special-secondary);
+    --tag-label-color: var(--base-violet-45);
+    --tag-icon-wrapper-color: var(--base-violet-45);
+}
+
+/* Цвета компании */
+.tag.accent {
+    --tag-bg-color: var(--bg-accent-secondary);
+    --tag-label-color: var(--text-accent);
+    --tag-icon-wrapper-color: var(--text-accent);
+}
+
+.tag.blue {
+    --tag-bg-color: var(--bg-blue-secondary);
+    --tag-label-color: var(--base-blue-45);
+    --tag-icon-wrapper-color: var(--base-blue-45);
+}
+
+.tag.lovely {
+    --tag-bg-color: var(--bg-lovely-secondary);
+    --tag-label-color: var(--base-pink-60);
+    --tag-icon-wrapper-color: var(--base-pink-60);
+}
+
+.tag.dreamy {
+    --tag-bg-color: var(--bg-dreamy-secondary);
+    --tag-label-color: var(--base-sky-60);
+    --tag-icon-wrapper-color: var(--base-sky-60);
+}
+

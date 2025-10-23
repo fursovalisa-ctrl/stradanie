@@ -1,0 +1,136 @@
+/**
+ * Политика z-index
+ *
+ * Шкала z-index:
+ * 0-99:    Базовые элементы (контент, фон)
+ * 100-199: Интерактивные элементы (кнопки, ссылки, input)
+ * 200-299: Всплывающие элементы (тултипы, хинты, dropdown)
+ * 300-399: Модальные окна и оверлеи
+ * 400-499: Уведомления и алерты
+ * 500+:    Критические элементы (загрузчики, ошибки)
+ */
+
+:root {
+  /* Базовые элементы (0-99) - исходный уровень */
+  --z-base: 0;           /* Нейтральное значение для элементов на исходном уровне */
+  --z-content: 10;       /* Основной контент */
+  --z-background: 20;    /* Фоновые элементы */
+
+  /* Интерактивные элементы (100-199) - поверх контента */
+  --z-button: 100;       /* Кнопки */
+  --z-link: 110;         /* Ссылки */
+  --z-input: 120;        /* Поля ввода */
+  --z-suffix: 130;       /* Суффиксы в input (XIcon, иконки) */
+  --z-prefix: 140;       /* Префиксы в input */
+
+  /* Всплывающие элементы (200-299) - поверх интерактивных */
+  --z-tooltip: 200;      /* Всплывающие подсказки */
+  --z-hint: 210;         /* Подсказки в полях ввода */
+  --z-dropdown: 220;     /* Выпадающие списки */
+  --z-popover: 230;      /* Всплывающие панели */
+
+  /* Модальные окна и оверлеи (300-399) - поверх всего контента */
+  --z-modal-backdrop: 300; /* Фон модального окна */
+  --z-modal: 310;        /* Модальные окна */
+  --z-overlay: 320;      /* Оверлеи */
+  --z-drawer: 330;       /* Боковые панели */
+
+  /* Уведомления и алерты (400-499) - поверх модальных окон */
+  --z-notification: 400; /* Уведомления */
+  --z-alert: 410;        /* Предупреждения */
+  --z-toast: 420;        /* Всплывающие сообщения */
+
+  /* Критические элементы (500+) - самый высокий приоритет */
+  --z-loading: 500;      /* Индикаторы загрузки */
+  --z-error: 510;        /* Сообщения об ошибках */
+  --z-critical: 520;     /* Критически важные элементы */
+}
+
+/* Утилитарные классы для быстрого применения z-index */
+.base {
+  z-index: var(--z-base);
+}
+
+.content {
+  z-index: var(--z-content);
+}
+
+.background {
+  z-index: var(--z-background);
+}
+
+.button {
+  z-index: var(--z-button);
+}
+
+.link {
+  z-index: var(--z-link);
+}
+
+.input {
+  z-index: var(--z-input);
+}
+
+.suffix {
+  z-index: var(--z-suffix);
+}
+
+.prefix {
+  z-index: var(--z-prefix);
+}
+
+.tooltip {
+  z-index: var(--z-tooltip);
+}
+
+.hint {
+  z-index: var(--z-hint);
+}
+
+.dropdown {
+  z-index: var(--z-dropdown);
+}
+
+.popover {
+  z-index: var(--z-popover);
+}
+
+.modalBackdrop {
+  z-index: var(--z-modal-backdrop);
+}
+
+.modal {
+  z-index: var(--z-modal);
+}
+
+.overlay {
+  z-index: var(--z-overlay);
+}
+
+.drawer {
+  z-index: var(--z-drawer);
+}
+
+.notification {
+  z-index: var(--z-notification);
+}
+
+.alert {
+  z-index: var(--z-alert);
+}
+
+.toast {
+  z-index: var(--z-toast);
+}
+
+.loading {
+  z-index: var(--z-loading);
+}
+
+.error {
+  z-index: var(--z-error);
+}
+
+.critical {
+  z-index: var(--z-critical);
+}

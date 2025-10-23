@@ -1,0 +1,745 @@
+/* Токены дизайн-системы */
+:root {
+  /* Цвета полей ввода */
+  --input-background: var(--bg-primary);
+  --input-text: var(--text-primary);
+  --input-text-disabled: var(--text-tertiary);
+  --input-placeholder: var(--base-graphite-65);
+  --input-border: var(--stroke-neutral);
+  --input-border-hover: var(--base-graphite-85);
+  --input-border-focus: var(--stroke-accent);
+  --input-border-error: var(--stroke-negative);
+  --input-border-disabled: var(--stroke-neutral-disabled);
+  --input-ring-focus: color-mix(in srgb, var(--brand-primary-500) 50%, transparent);
+  --input-ring-error: color-mix(in srgb, var(--text-negative) 50%, transparent);
+
+  /* Ring эффекты для фокуса по Tab */
+  --input-ring-offset: 2px;
+  --input-ring-width: 6px;
+
+  /* Размеры полей ввода */
+  --input-height-small: 2.5rem;
+  --input-height-medium: 3rem;
+  --input-height-large: 3.5rem;
+  --input-padding-small: 0.5rem 0.75rem;
+  --input-padding-medium: 0.75rem 1rem;
+  --input-padding-large: 1rem 1.25rem;
+  --input-font-size-small: 0.75rem;
+  --input-font-size-medium: 0.875rem;
+  --input-font-size-large: 1rem;
+  --input-border-radius: 12px;
+  --input-border-width: 1px;
+  --input-border-width-focus: 2px;
+
+  /* Размеры для textarea */
+  --textarea-min-height-hug: 24px;
+  --textarea-padding-small: 12px;
+  --textarea-padding-medium: 16px;
+  --textarea-padding-large: 16px;
+  --textarea-margin-top-floating: 18px;
+
+  /* Размеры для grip */
+  --grip-size: 12px;
+  --grip-position: 4px;
+  --grip-cursor: ns-resize;
+
+  /* Размеры для hint */
+  --hint-max-width: 110px;
+  --hint-padding-right: 120px;
+  --hint-position-right: 16px;
+
+  /* Размеры для счетчика символов */
+  --character-limit-font-size: 12px;
+  --character-limit-position-bottom: 10px;
+  --character-limit-position-right: 12px;
+
+  /* Размеры шрифтов для input/textarea */
+  --input-font-size-small: 14px;
+  --input-font-size-medium: 16px;
+  --input-font-size-large: 16px;
+  --input-line-height-small: 20px;
+  --input-line-height-medium: 22px;
+  --input-line-height-large: 22px;
+
+  /* Анимации полей ввода */
+  --input-transition: outline-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  --semantic-animation-ease-in-out-100: all 0.2s ease-in-out;
+  --semantic-animation-ease-in-out-300: all 0.3s ease-in-out;
+
+  /* Типографика для меток */
+  --label-font-family: var(--font-family);
+  --label-font-weight: 400;
+  --label-font-style: Regular;
+  --label-font-size-medium: 16px;
+  --label-line-height-medium: 22px;
+  --label-letter-spacing-medium: 0%;
+  --label-vertical-align: middle;
+  --label-font-size-small: 14px;
+  --label-line-height-small: 20px;
+  --label-letter-spacing-small: 0.5%;
+}
+
+/* БАЗОВЫЕ СТИЛИ */
+
+/* Основной контейнер поля ввода */
+.inputBase {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+/* СТИЛИ ОБЕРТКИ (WRAPPER) */
+
+/* Обертка поля ввода */
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: var(--input-border-width) solid var(--input-border);
+  border-radius: var(--input-border-radius);
+  background: var(--input-background);
+  outline: 2px solid transparent;
+  outline-offset: 0;
+  transition: var(--input-transition);
+  box-sizing: border-box;
+}
+
+/* Стили для wrapper с textarea */
+.wrapper.textarea-wrapper {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+/* Стили для wrapper с hug resize */
+.wrapper.textarea-wrapper[data-resize="hug"] {
+  height: auto;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  max-height: none;
+}
+
+/* Стили для wrapper с fill resize */
+.wrapper.textarea-wrapper[data-resize="fill"] {
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Стили для textarea с fill resize */
+.wrapper.textarea-wrapper[data-resize="fill"] textarea {
+  flex: 1;
+  min-height: 0;
+  height: auto;
+  overflow: auto;
+}
+
+/* Стили для wrapper с fixed resize */
+.wrapper.textarea-wrapper[data-resize="fixed"] {
+  height: 100%;
+  min-height: 100%;
+}
+
+/* СТИЛИ GRIP */
+
+/* Стили для wrapper с grip resize */
+.wrapper[data-show-grip="true"] {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Отключаем встроенный resize когда есть кастомный grip */
+.wrapper[data-show-grip="true"] textarea {
+  resize: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Скрываем стандартный resize handle textarea */
+.wrapper[data-show-grip="true"] textarea::-webkit-resizer {
+  display: none;
+}
+
+/* Кастомный grip handle */
+.gripHandle {
+  position: absolute;
+  bottom: var(--grip-position);
+  right: var(--grip-position);
+  width: var(--grip-size);
+  height: var(--grip-size);
+  cursor: var(--grip-cursor);
+  z-index: var(--z-base);
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Универсальный селектор для всех textarea */
+.wrapper textarea {
+  resize: none;
+  overflow: hidden;
+}
+
+/* Стили для новых значений resize */
+.wrapper textarea[data-resize="fill"] {
+  resize: none;
+  overflow: auto;
+  height: 100%;
+  min-height: 100%;
+}
+
+.wrapper textarea[data-resize="hug"] {
+  resize: none;
+  overflow: auto;
+  height: auto;
+  min-height: var(--textarea-min-height-hug);
+  max-height: none;
+}
+
+.wrapper textarea[data-resize="fixed"] {
+  resize: none;
+  overflow: auto;
+  height: 100%;
+  min-height: 100%;
+}
+
+
+
+/* СОСТОЯНИЯ ОБЕРТКИ */
+
+/* Состояние фокуса через CSS псевдоклассы */
+.wrapper:focus-within {
+  border-color: transparent;
+  outline-color: var(--stroke-accent);
+}
+
+/* Состояние фокуса по Tab с ring эффектом */
+.wrapper:focus-within:focus-visible {
+  border-color: transparent;
+  outline-color: var(--stroke-accent);
+  box-shadow: 0 0 0 var(--input-ring-width) var(--input-ring-focus);
+}
+
+/* Состояние фокуса по Tab с ошибкой */
+.wrapper.error:focus-within:focus-visible {
+  border-color: transparent;
+  outline-color: var(--stroke-negative);
+  box-shadow: 0 0 0 var(--input-ring-width) var(--input-ring-error);
+}
+
+/* JavaScript управляемый Tab фокус */
+.wrapper.tabFocused {
+  border-color: transparent;
+  outline-color: var(--stroke-accent);
+  box-shadow: 0 0 0 var(--input-ring-width) var(--input-ring-focus);
+}
+
+/* JavaScript управляемый Tab фокус с ошибкой */
+.wrapper.error.tabFocused {
+  border-color: transparent;
+  outline-color: var(--stroke-negative);
+  box-shadow: 0 0 0 var(--input-ring-width) var(--input-ring-error);
+}
+
+/* Состояние ошибки */
+.wrapper.error {
+  border-color: var(--stroke-negative);
+  border-width: 1px;
+}
+
+.wrapper.error:focus-within {
+  border-color: transparent;
+  outline-color: var(--stroke-negative);
+}
+
+/* Отключенное состояние */
+.wrapper.disabled {
+  background-color: var(--bg-secondary);
+  border-color: var(--stroke-neutral-disabled);
+  cursor: not-allowed;
+}
+
+/* Состояние загрузки */
+.wrapper.loading {
+  background-color: var(--bg-secondary);
+  border-color: var(--stroke-neutral-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* СТИЛИ МЕТОК */
+
+/* Основная метка поля */
+.label {
+  font-family: var(--label-font-family);
+  font-weight: var(--label-font-weight);
+  font-style: var(--label-font-style);
+  font-size: var(--label-font-size-medium);
+  line-height: var(--label-line-height-medium);
+  letter-spacing: var(--label-letter-spacing-medium);
+  vertical-align: var(--label-vertical-align);
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+/* Метка малого размера */
+.label.small {
+  font-size: var(--label-font-size-small);
+  line-height: var(--label-line-height-small);
+  letter-spacing: var(--label-letter-spacing-small);
+}
+
+/* Метка большого размера */
+.label.large {
+  font-size: var(--label-font-size-medium);
+  line-height: var(--label-line-height-medium);
+  letter-spacing: var(--label-letter-spacing-medium);
+}
+
+/* Стили секций */
+.leftSection {
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+  z-index: var(--z-prefix);
+  cursor: pointer;
+}
+
+/* Правая секция (суффикс) */
+.rightSection {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-suffix);
+  cursor: pointer;
+}
+
+/* Для textarea правая секция прижата к верху */
+.wrapper.textarea-wrapper .rightSection {
+  top: 16px;
+  transform: none;
+}
+
+/* Для textarea с small размером - кнопка выше */
+.wrapper.textarea-wrapper .rightSection.small {
+  top: 12px;
+  transform: none;
+}
+
+/* Отключенное состояние для секций */
+.wrapper.disabled .leftSection,
+.wrapper.disabled .rightSection {
+  color: var(--text-tertiary);
+}
+
+/* Состояние загрузки для секций */
+.wrapper.loading .leftSection,
+.wrapper.loading .rightSection {
+  color: var(--text-tertiary);
+}
+
+/* Вспомогательный текст */
+.helper {
+  text-align: start;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--input-font-size-small);
+  line-height: var(--input-line-height-small);
+  letter-spacing: 0.005em;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  display: block;
+  width: 100%;
+  transition: var(--semantic-animation-ease-in-out-300);
+}
+
+/* Вспомогательный текст с ошибкой */
+.helper.error {
+  color: var(--text-negative);
+}
+
+/* Отключенное состояние для хелпера */
+.helper.disabled {
+  color: var(--text-tertiary);
+}
+
+/* Плавающая метка */
+.floatingLabel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-family);
+  font-weight: var(--label-font-weight);
+  font-style: var(--label-font-style);
+  font-size: var(--label-font-size-medium);
+  line-height: var(--label-line-height-medium);
+  letter-spacing: var(--label-letter-spacing-medium);
+  vertical-align: var(--label-vertical-align);
+  color: var(--base-graphite-65);
+  pointer-events: none;
+  transition: var(--semantic-animation-ease-in-out-100);
+  background: transparent;
+  z-index: var(--z-content);
+  /* В обычном состоянии - многострочная метка */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  /* Учитываем отступы контейнера */
+  left: 16px;
+  right: 16px;
+  box-sizing: border-box;
+  /* В дефолтном состоянии видим, но в центре */
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hover состояние для плавающей метки */
+.wrapper:hover .floatingLabel {
+  color: var(--text-secondary);
+}
+
+  /* Плавающая метка малого размера */
+  .floatingLabel.small {
+    font-size: var(--label-font-size-small);
+    line-height: var(--label-line-height-small);
+    letter-spacing: var(--label-letter-spacing-small);
+  }
+
+  /* Плавающая метка большого размера */
+  .floatingLabel.large {
+    font-size: var(--label-font-size-medium);
+    line-height: var(--label-line-height-medium);
+    letter-spacing: var(--label-letter-spacing-medium);
+  }
+
+/* Состояние фокуса для плавающей метки */
+.wrapper:focus-within .floatingLabel {
+  color: var(--text-secondary);
+}
+
+
+
+.floatingLabel.focused,
+.floatingLabel.filled {
+  top: 0.25rem;
+  color: var(--text-secondary);
+  transform: translateY(0) scale(0.75);
+  background: transparent;
+  /* Обрезаем метку до одной строки в активном состоянии */
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  /* В активном состоянии - компактное позиционирование */
+  left: 16px;
+  right: 16px;
+  bottom: auto;
+  box-sizing: border-box;
+  /* В активном состоянии ограничиваем высоту одной строки */
+  max-height: 22px;
+  /* Правильное позиционирование */
+  z-index: var(--z-input);
+  /* В активном состоянии видим */
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Специальные стили для textarea с разными значениями top */
+/* Для textarea с small размером - всегда top: 12px */
+.wrapper.textarea-wrapper .floatingLabel.focused.small,
+.wrapper.textarea-wrapper .floatingLabel.filled.small {
+  top: 12px;
+}
+
+/* Для textarea с medium размером - зависит от состояния */
+.wrapper.textarea-wrapper .floatingLabel.focused.medium,
+.wrapper.textarea-wrapper .floatingLabel.filled.medium {
+  top: 8px;
+}
+
+
+/* Обычное состояние лейбла в textarea (не плавающий) */
+.wrapper.textarea-wrapper .floatingLabel.medium {
+  top: 27px
+}
+/* Обычное состояние лейбла в textarea (не плавающий) */
+.wrapper.textarea-wrapper .floatingLabel.small {
+  top: 22px
+}
+
+/* Отключенное состояние для метки */
+.wrapper.disabled .floatingLabel {
+  color: var(--text-tertiary);
+}
+
+.wrapper.disabled .floatingLabel.focused,
+.wrapper.disabled .floatingLabel.filled {
+  color: var(--text-tertiary);
+}
+
+/* Состояние загрузки для метки */
+.wrapper.loading .floatingLabel {
+  color: var(--text-tertiary);
+}
+
+/* Плавающая метка с ошибкой */
+.floatingLabel.error {
+  color: var(--text-negative);
+}
+
+/* Плавающая метка с ошибкой в фокусе */
+.floatingLabel.error.focused {
+  color: var(--text-negative);
+}
+
+/* Счетчик символов */
+.characterLimit {
+  position: absolute;
+  bottom: var(--character-limit-position-bottom);
+  right: var(--character-limit-position-right);
+  font-size: var(--character-limit-font-size);
+  color: var(--text-tertiary);
+  line-height: 1.2;
+  pointer-events: none;
+  z-index: var(--z-content);
+  transition: color 0.2s ease-in-out;
+}
+
+/* Фокусное состояние для счетчика символов */
+.wrapper:focus-within .characterLimit {
+  color: var(--text-secondary);
+}
+
+/* Hover состояние для счетчика символов */
+.wrapper:hover .characterLimit {
+  color: var(--text-secondary);
+}
+
+/* СТИЛИ INPUT */
+
+/* Стили для встроенного input элемента */
+.input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-family);
+  font-size: inherit;
+  color: var(--text-primary);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: color 0.2s ease-in-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Плейсхолдер для input */
+.input::placeholder {
+  color: var(--input-placeholder);
+}
+
+/* Hover состояние для плейсхолдера input */
+.wrapper:hover .input::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Отключенное состояние для плейсхолдера input */
+.wrapper.disabled .input::placeholder {
+  color: var(--input-placeholder);
+  opacity: 0.5;
+}
+
+/* Плейсхолдер для textarea */
+.textarea::placeholder {
+  color: var(--input-placeholder);
+}
+
+/* Фокусное состояние для плейсхолдера input */
+.wrapper:focus-within .input::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Состояние загрузки для плейсхолдера input */
+.wrapper.loading .input::placeholder {
+  color: var(--input-placeholder);
+  opacity: 0.5;
+}
+
+/* Размеры input согласно макетам */
+.input.size-small {
+  height: 20px;
+  font-size: var(--input-font-size-small);
+  line-height: var(--input-line-height-small);
+}
+
+.input.size-medium {
+  height: 24px;
+  font-size: var(--input-font-size-medium);
+  line-height: var(--input-line-height-medium);
+}
+
+.input.size-large {
+  height: 24px;
+  font-size: var(--input-font-size-large);
+  line-height: var(--input-line-height-large);
+}
+
+/* Состояние с плавающей меткой для большого размера */
+.input.size-large.with-floating-label {
+  align-self: flex-end;
+}
+
+.input.size-large.with-floating-label::placeholder {
+  color:transparent;
+}
+
+
+/* Состояния input */
+.input.disabled {
+  cursor: not-allowed;
+  color: var(--text-tertiary);
+}
+
+.input.loading {
+  cursor: not-allowed;
+  color: var(--text-tertiary);
+}
+
+/* Состояние фокуса */
+.input:focus {
+  outline: none;
+}
+
+/* Состояние только для чтения */
+.input[readonly] {
+  background-color: var(--bg-secondary);
+  cursor: default;
+}
+
+/* Обрезка текста с многоточием */
+.input.truncate {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Обрезка плейсхолдера */
+.input.truncate::placeholder {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* СТИЛИ TEXTAREA */
+
+/* Стили для встроенного textarea элемента */
+.textarea {
+  width: 100%;
+  min-height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-family);
+  font-size: inherit;
+  color: var(--text-primary);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  resize: none;
+  overflow: hidden;
+  transition: color 0.2s ease-in-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+
+/* Состояние загрузки для плейсхолдера textarea */
+.wrapper.loading .textarea::placeholder {
+  color: var(--input-placeholder);
+  opacity: 0.5;
+}
+
+/* Размеры textarea согласно макетам (наследуют от input) */
+.textarea.size-small {
+  font-size: var(--input-font-size-medium);
+  line-height: var(--input-line-height-medium);
+}
+
+.textarea.size-medium {
+  font-size: var(--input-font-size-large);
+  line-height: var(--input-line-height-large);
+}
+
+.textarea.with-floating-label[data-empty="false"] {
+  margin-top: var(--textarea-margin-top-floating);
+}
+
+.textarea.with-floating-label::placeholder {
+  color: transparent;
+}
+
+/* Отключенное состояние для встроенных элементов */
+.wrapper.disabled .input,
+.wrapper.disabled .textarea {
+  color: var(--input-text-disabled);
+  cursor: not-allowed;
+}
+
+/* Состояние загрузки для встроенных элементов */
+.wrapper.loading .input,
+.wrapper.loading .textarea {
+  color: var(--input-text-disabled);
+  cursor: not-allowed;
+}
+
+/* СТИЛИ HINT И СЧЕТЧИКА */
+
+/* Стили для hint (подсказки) */
+.hint {
+  position: absolute;
+  right: var(--hint-position-right);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  font-size: inherit;
+  font-family: var(--font-family);
+  pointer-events: none;
+  max-width: var(--hint-max-width);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  z-index: var(--z-hint);
+}
+
+/* Отступ для input когда есть hint */
+.wrapper.has-hint .input,
+.wrapper.has-hint .textarea {
+  padding-right: var(--hint-padding-right);
+}
+
+/* Отключенное состояние для подсказки */
+.hint[data-disabled="true"] {
+  color: var(--text-tertiary);
+}
+ 

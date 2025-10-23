@@ -1,0 +1,201 @@
+const Items = [
+  {
+    title: "TITLE1",
+    title2: "DESCRIPTION1",
+    key: 1,
+  },
+  {
+    title: "TITLE2",
+    title2: "DESCRIPTION2",
+    key: 2,
+  },
+  {
+    title: "TITLe3",
+    title2: "DESCRIPTION3",
+    key: 3,
+  },
+];
+
+export default function Collapse({ data }) {
+  const [items, setItems] = useState(
+    data?.map((item) => ({
+      ...item,
+      isActive: false,
+    }))
+  );
+
+  function handler(event){
+if (event.target.index) {
+
+}
+  }
+
+  return (
+    <section>
+      {items.map((items) => (
+        <CollapseItem {...Item} />
+      ))}
+    </section>
+  );
+}
+
+function CollapseItem(props) {
+  const [activeC, setActiveC] = useState(false);
+
+  return (
+    <>
+      <Button index={Item.kay} onClick={/*() => setActiveC(!activeC)*/} isActive={activeC}>
+        Раскрывающийся список
+      </Button>
+
+      {activeC && (
+        <div className={s.CollapseItemTrue}>
+          <p>{props.title2}</p>
+        </div>
+      )}
+    </>
+  );
+}
+
+
+const Items = [
+  {
+    title: "TITLE1",
+    title2: "DESCRIPTION1",
+    key: 1,
+  },
+  {
+    title: "TITLE2",
+    title2: "DESCRIPTION2",
+    key: 2,
+  },
+  {
+    title: "TITLe3",
+    title2: "DESCRIPTION3",
+    key: 3,
+  },
+];
+
+
+export default function Collapse() {
+  return (
+    <section>
+      {Items.map((Item) => (
+        <CollapseItem {...Item} />
+      ))}
+    </section>
+  );
+}
+
+function CollapseItem(props) {
+  const [activeC, setActiveC] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setActiveC(!activeC)} isActive={activeC}>
+        Раскрывающийся список
+      </Button>
+
+      {activeC && (
+        <div className={s.CollapseItemTrue}>
+          <p>{props.title2}</p>
+        </div>
+      )}
+    </>
+  );
+}
+
+export default function Collapse(Items) {
+  const [items, setItems] = useState(false)
+
+
+  const handleClick = (Item[key]) => {
+    setItems(()=>(Item[key].isActive = !Item[key].isActive));
+  };
+ 
+  return (
+    <>
+      {Items.map((item) => (
+        <div>
+          <Button onClick={handleClick(Item[key])}>Раскрывающийся список</Button>
+          {Item[key].isActive && (
+            <div className={s.CollapseItemTrue}>
+              <p>{Item.title2}</p>
+            </div>
+          )}
+        </div>
+      ))}
+    </>
+  );
+}
+
+Items.forEach((Item) =>
+      Item.key === key ? (isActive = true) : (isActive = false)
+    );
+
+    export default function Collapse() {
+      const [ActiveKey, setActiveKey] = useState(0);
+    
+      const handleClick = (key) => (event) => {
+        setActiveKey(key);
+      };
+    
+      useEffect(() => {
+        const newItems = Items.map((Item) => ({
+          ...Items,
+          isActive:
+            Item.key === ActiveKey
+              ? (Item.isActive = true)
+              : (Item.isActive = false),
+        }));
+      }, [ActiveKey]);
+    
+      return (
+        <>
+          {Items.map((Item) => (
+            <div>
+              <Button onClick={handleClick(Item.key)}>Раскрывающийся список</Button>
+              {isActive && (
+                <div className={s.CollapseItemTrue}>
+                  <p>{Item.title2}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </>
+      );
+    }
+
+      export default function Collapse(Items) {
+        const [items, setItems] = useState(
+        Items.map((item) => ({
+          ...item,
+          isActive: false,
+        }))
+      );
+          const [activeKey, setActiveKey] = useState(0);
+        
+          const handleClick = (key) => (event) => {
+            setActiveKey(key);
+          };
+        
+          useEffect(() => {
+            setItems(items => items.map(item => item.key === activeKey ? {...item, isActive: true}, {...item, isActive: false}))
+          }, [activeKey]);
+        
+          return (
+            <>
+              {Items.map((Item) => (
+                <div>
+                  <Button onClick={handleClick(Item.key)}>Раскрывающийся список</Button>
+                  {isActive && (
+                    <div className={s.CollapseItemTrue}>
+                      <p>{Item.title2}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </>
+          );
+        }
+    

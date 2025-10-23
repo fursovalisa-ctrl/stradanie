@@ -1,0 +1,131 @@
+.palette {
+  min-height: 100vh;
+  padding: 24px;
+  background: var(--base-gray-97);
+}
+
+
+
+.title {
+  margin-bottom: 32px;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--base-gray-15);
+}
+
+.colorGroup {
+  margin-bottom: 48px;
+}
+
+.groupTitle {
+  margin-bottom: 16px;
+
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--base-gray-20);
+  text-transform: capitalize;
+}
+
+.colorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.colorCard {
+  overflow: hidden;
+
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.colorCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.15);
+}
+
+.colorSwatch {
+  position: relative;
+  width: 100%;
+  height: 80px;
+}
+
+.colorInfo {
+  padding: 12px 16px;
+}
+
+.colorName {
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--base-gray-15);
+}
+
+.colorValue {
+  font-family: Monaco, Menlo, Ubuntu Mono, monospace;
+  font-size: 12px;
+  color: var(--base-gray-50);
+}
+
+.primaryBadge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  padding: 4px 8px;
+
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--base-gray-15);
+
+  background: rgb(255 255 255 / 0.9);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+}
+
+.palettePreview {
+  min-height: auto;
+  padding: 16px;
+  background: transparent;
+}
+
+.palettePreview .title {
+  margin-bottom: 16px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.palettePreview .colorGrid {
+  grid-template-columns: repeat(auto fill, minmax(120px, 1fr));
+  gap: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.palettePreview .colorCard {
+  transition: transform 0.2s ease;
+}
+
+.palettePreview .colorCard:hover {
+  transform: scale(1.05);
+}
+
+.palettePreview .colorSwatch {
+  height: 60px;
+}
+
+.palettePreview .colorInfo {
+  padding: 8px 12px;
+}
+
+.palettePreview .colorName {
+  margin-bottom: 2px;
+  font-size: 12px;
+}
+
+.palettePreview .colorValue {
+  font-size: 10px;
+} 
